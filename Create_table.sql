@@ -197,6 +197,27 @@ CREATE TABLE chitiethoadonnhap(
     giasanpham int null,
     PRIMARY KEY(hoadonnhap_id,sanpham_id)
 );
+create table donhang(
+	id bigint not null primary key auto_increment,
+    nhanvien_id bigint not null,
+    khachhang_id bigint not null,
+    khuyenmai_id bigint null,
+    tongtien int null,
+    ngaylapdonhang timestamp not null,
+    trangthai int null
+);
+create table chitietdonhang(
+	donhang_id bigint not null,
+    sanpham_id bigint not null,
+    soluong int null,
+    giatien int null,
+    PRIMARY KEY(donhang_id,sanpham_id)
+);
+-- don hangaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+ALTER TABLE donhang ADD constraint fk_donhang_nhanvien foreign key (nhanvien_id) references nhanvien(id);
+ALTER TABLE donhang ADD constraint fk_donhang_khachhang foreign key (khachhang_id) references khachhang(id);
+ALTER TABLE chitietdonhang ADD constraint fk_chitietdonhang_donhang foreign key (donhang_id) references donhang(id);
+ALTER TABLE chitietdonhang ADD constraint fk_chitietdonhang_sanpham foreign key (sanpham_id) references sanpham(id);
 -- tạo khóa ngoại
 -- role
 -- sanpham
@@ -247,6 +268,6 @@ ALTER TABLE comment ADD CONSTRAINT fk_comment_khachhang FOREIGN KEY (khachhang_i
 -- hoadonnhap
 ALTER TABLE hoadonnhap ADD CONSTRAINT fk_hoadonnhap_nhacungcap FOREIGN KEY (nhacungcap_id) REFERENCES nhacungcap(id);
 ALTER TABLE hoadonnhap ADD CONSTRAINT fk_hoadonnhap_nhanvien FOREIGN KEY (nhanvien_id) REFERENCES nhanvien(id);
--- chitiethoadonnhap
+-- chitiethoadonnhap;;
 ALTER TABLE chitiethoadonnhap ADD CONSTRAINT fk_chitiethoadonnhap_hoadonnhap FOREIGN KEY (hoadonnhap_id) REFERENCES hoadonnhap(id);
 ALTER TABLE chitiethoadonnhap ADD CONSTRAINT fk_chitiethoadonnhap_sanpham FOREIGN KEY (sanpham_id) REFERENCES sanpham(id);
