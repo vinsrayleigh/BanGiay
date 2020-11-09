@@ -197,6 +197,27 @@ CREATE TABLE chitiethoadonnhap(
     giasanpham int null,
     PRIMARY KEY(hoadonnhap_id,sanpham_id)
 );
+create table donhang(
+	id bigint not null primary key auto_increment,
+    nhanvien_id bigint not null,
+    khachhang_id bigint not null,
+    khuyenmai_id bigint null,
+    tongtien int null,
+    ngaylapdonhang timestamp not null,
+    trangthai int null
+);
+create table chitietdonhang(
+	donhang_id bigint not null,
+    sanpham_id bigint not null,
+    soluong int null,
+    giatien int null,
+    PRIMARY KEY(donhang_id,sanpham_id)
+);
+-- don hang
+ALTER TABLE donhang ADD constraint fk_donhang_nhanvien foreign key (nhanvien_id) references nhanvien(id);
+ALTER TABLE donhang ADD constraint fk_donhang_khachhang foreign key (khachhang_id) references khachhang(id);
+ALTER TABLE chitietdonhang ADD constraint fk_chitietdonhang_donhang foreign key (donhang_id) references donhang(id);
+ALTER TABLE chitietdonhang ADD constraint fk_chitietdonhang_sanpham foreign key (sanpham_id) references sanpham(id);
 -- tạo khóa ngoại
 -- role
 -- sanpham
