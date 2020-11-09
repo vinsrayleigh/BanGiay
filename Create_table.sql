@@ -14,18 +14,23 @@ CREATE TABLE sanpham(
   code VARCHAR(6) NOT NULL,
    name VARCHAR(255)  NULL,
    size VARCHAR(255)  NULL,
-   image VARCHAR(255)  NULL,
-	mainprice int null,
-    currentprice int null,
-    amount int  null,
+	image VARCHAR(255)  NULL,
+mainprice int null,
+currentprice int null,
+amount int  null,
+loaisanpham_id bigint null,
   createddate TIMESTAMP NULL,
   modifieddate TIMESTAMP NULL,
   createdby VARCHAR(255) NULL,
   modifiedby VARCHAR(255) NULL
 );
+CREATE TABLE loaisanpham(
+	id bigint NOT NULL PRIMARY KEY auto_increment,
+    code VARCHAR(255),
+    name varchar(255)
+);
 CREATE TABLE khachhang(
   id bigint NOT NULL PRIMARY KEY auto_increment,
-  code VARCHAR(6) NOT NULL,
    name VARCHAR(255)  NULL,
 	phone char(10)  null,
 	status int not null,
@@ -37,7 +42,6 @@ CREATE TABLE khachhang(
 );
 CREATE TABLE nhanvien(
   id bigint NOT NULL PRIMARY KEY auto_increment,
-  code VARCHAR(6) NOT NULL,
    name VARCHAR(255)  NULL,
 	phone char(10)  null,
 	status int not null,
@@ -48,45 +52,46 @@ CREATE TABLE nhanvien(
   modifiedby VARCHAR(255) NULL
 );
 CREATE TABLE lichlamtuan(
-  code_nhanvien varchar(6) not null,
+  nhanvien_id bigint not null PRIMARY KEY,
 	thu2 varchar(12) null,
     thu3 varchar(12) null,
     thu4 varchar(12) null,thu5 varchar(12) null,thu6 varchar(12) null,thu7 varchar(12) null,CN varchar(12) null
 );
 CREATE TABLE lichdangkytuan(
-  code_nhanvien varchar(6) not null,
+  nhanvien_id bigint not null PRIMARY KEY,
 	thu2 varchar(12) null,
     thu3 varchar(12) null,
     thu4 varchar(12) null,thu5 varchar(12) null,thu6 varchar(12) null,thu7 varchar(12) null,CN varchar(12) null
 );
 CREATE TABLE giolamtheoca(
-  code_nhanvien varchar(6) not null,
+id bigint NOT NULL PRIMARY KEY auto_increment,
+  nhanvien_id bigint not null,
 	ngay timestamp null,
     ca int null,
     giolam int null,
     luong1h int null
 );
 CREATE TABLE truluong(
-  code_nhanvien varchar(6) not null,
+id bigint NOT NULL PRIMARY KEY auto_increment,
+  nhanvien_id bigint not null,
 	ngay timestamp null,
     ca int null,
     luongbitru int null,
     note text null
 );
 CREATE TABLE chamcong(
-  code_nhanvien varchar(6) not null,
+id bigint NOT NULL PRIMARY KEY auto_increment,
+  nhanvien_id bigint not null,
 	thang int  null,
     nam int null,
     luongnhanduoc int null
 );
 CREATE TABLE hoadon(
   id bigint NOT NULL PRIMARY KEY auto_increment,
-  code_hoadon varchar(6) not null,
-	code_khachhang varchar(6) not  null,
-    code_nhanvien varchar(6) not null,
-
+	khachhang_id bigint not  null,
+    nhanvien_id bigint not null,
     tongtien int null,
-    code_khuyenmai varchar(6),
+    khuyenmai_id bigint,
     ngay timestamp null,
         createddate TIMESTAMP NULL,
   modifieddate TIMESTAMP NULL,
@@ -94,71 +99,78 @@ CREATE TABLE hoadon(
   modifiedby VARCHAR(255) NULL
 );
 CREATE TABLE chitiethoadon(
-	id bigint NOT NULL PRIMARY KEY auto_increment,
-	code_hoadon varchar(6) not null,
-	code_sanpham varchar(6) not  null,
+	hoadon_id bigint not null,
+	sanpham_id bigint not  null,
     soluong int null,
-    giasanpham int null
-);
-CREATE TABLE chitietkhuyenmaitheohoadon(
-	id bigint NOT NULL PRIMARY KEY auto_increment,
-	code_hoadon varchar(6) not null,
-	code_sanpham varchar(6) not  null,
-    soluong int null,
-    giasanpham int null
+    giasanpham int null,
+    PRIMARY KEY(hoadon_id, sanpham_id)
 );
 CREATE TABLE khuyenmai(
 	id bigint NOT NULL PRIMARY KEY auto_increment,
-	code_khuyenmai varchar(6) not null,
+    content text null,
 	ngaybatdau timestamp null,
     ngayketthuc timestamp null
 );
 CREATE TABLE chitietkhuyenmai(
-	id bigint NOT NULL PRIMARY KEY auto_increment,
-	code_khuyenmai varchar(6) not null,
-	code_sanpham varchar(6) not  null,
+	khuyenmai_id bigint not null,
+    loaikhuyenmai_code varchar(6) not null,
+	sanpham_id bigint UNIQUE,
     soluong int null,
-    giasanpham int null
+    giasanpham int null,
+    PRIMARY KEY(khuyenmai_id, sanpham_id)
+);
+CREATE TABLE loaikhuyenmai(
+	id bigint NOT NULL PRIMARY KEY auto_increment,
+    code varchar(6),
+    name varchar(6)
 );
 CREATE TABLE dieukienkhuyenmai(
-	id bigint NOT NULL PRIMARY KEY auto_increment,
-	code_khuyenmai varchar(6) not null,
-	code_sanpham varchar(6) not  null,
+	khuyenmai_id bigint not null,
+    loaikhuyenmai_code varchar(6) not null,
+	sanpham_id bigint UNIQUE,
     soluong int null,
-    giasanpham int null
+    giasanpham int null,
+    PRIMARY KEY(khuyenmai_id, sanpham_id)
 );
-CREATE TABLE taikhoan(
+CREATE TABLE taikhoannhanvien(
 	id bigint NOT NULL PRIMARY KEY auto_increment,
 	username varchar(255) not null,
     password varchar(6) not null,
-	code_owner varchar(6) not  null,
-    code_role varchar(6) not null,
+	nhanvien_id bigint not  null,
+    role_code varchar(6) not null,
 	  createddate TIMESTAMP NULL,
   modifieddate TIMESTAMP NULL,
   createdby VARCHAR(255) NULL,
   modifiedby VARCHAR(255) NULL
-  
+);
+CREATE TABLE taikhoankhachhang(
+	id bigint NOT NULL PRIMARY KEY auto_increment,
+	username varchar(255) not null,
+    password varchar(6) not null,
+	khachhang_id bigint not  null,
+	  createddate TIMESTAMP NULL,
+  modifieddate TIMESTAMP NULL,
+  createdby VARCHAR(255) NULL,
+  modifiedby VARCHAR(255) NULL
 );
 CREATE TABLE nhacungcap(
 	id bigint NOT NULL PRIMARY KEY auto_increment,
-	code_nhacungcap varchar(6) not null,
 	name varchar(255) not null,
 	address varchar(255) null,
-   
 	  createddate TIMESTAMP NULL,
   modifieddate TIMESTAMP NULL,
   createdby VARCHAR(255) NULL,
   modifiedby VARCHAR(255) NULL
 );
 CREATE TABLE nccsanpham(
-	code_nhacungcap varchar(6) not null,
-    code_sanpham varchar(6) not null
-  
+	nhacungcap_id bigint not null,
+    sanpham_id bigint not null,
+    PRIMARY KEY(nhacungcap_id, sanpham_id)
 );
 CREATE TABLE comment(
 	id bigint NOT NULL PRIMARY KEY auto_increment,
-	code_sanpham varchar(6) not  null,
-    code_khachhang varchar(6) not null,
+	sanpham_id bigint not null,
+    khachhang_id bigint not null,
     danhgia int null,
     content text null,
 	  createddate TIMESTAMP NULL,
@@ -169,10 +181,8 @@ CREATE TABLE comment(
 );
 CREATE TABLE hoadonnhap(
   id bigint NOT NULL PRIMARY KEY auto_increment,
-  code_hoadonnhap varchar(6) not null,
-	code_nhacungcap varchar(6) not  null,
-    code_nhanvien varchar(6) not null,
-
+	nhacungcap_id bigint not null,
+    nhanvien_id bigint not null,
     tongtien int null,
     ngay timestamp null,
         createddate TIMESTAMP NULL,
@@ -181,9 +191,62 @@ CREATE TABLE hoadonnhap(
   modifiedby VARCHAR(255) NULL
 );
 CREATE TABLE chitiethoadonnhap(
-	id bigint NOT NULL PRIMARY KEY auto_increment,
-	code_hoadonnhap varchar(6) not null,
-	code_sanpham varchar(6) not  null,
+	hoadonnhap_id bigint not null,
+	sanpham_id bigint not null,
     soluong int null,
-    giasanpham int null
+    giasanpham int null,
+    PRIMARY KEY(hoadonnhap_id,sanpham_id)
 );
+-- tạo khóa ngoại
+-- role
+-- sanpham
+ALTER TABLE sanpham ADD CONSTRAINT fk_sanpham_loaisanpham FOREIGN KEY (loaisanpham_id) REFERENCES loaisanpham(id);
+-- loaisanpham
+-- khachhang
+-- nhanvien
+-- lichlamtuan
+ALTER TABLE lichlamtuan ADD CONSTRAINT fk_lichlamtuan_nhanvien FOREIGN KEY (nhanvien_id) REFERENCES nhanvien(id);
+-- lichdangkytuan
+ALTER TABLE lichdangkytuan ADD CONSTRAINT fk_lichdangkytuan_nhanvien FOREIGN KEY (nhanvien_id) REFERENCES nhanvien(id);
+-- truluong
+ALTER TABLE truluong ADD CONSTRAINT fk_truluong_nhanvien FOREIGN KEY (nhanvien_id) REFERENCES nhanvien(id);
+-- chamcong
+ALTER TABLE chamcong ADD CONSTRAINT fk_chamcong_nhanvien FOREIGN KEY (nhanvien_id) REFERENCES nhanvien(id);
+-- hoadon
+ALTER TABLE hoadon ADD CONSTRAINT fk_hoadon_nhanvien FOREIGN KEY (nhanvien_id) REFERENCES nhanvien(id);
+ALTER TABLE hoadon ADD CONSTRAINT fk_hoadon_khachhang FOREIGN KEY (khachhang_id) REFERENCES khachhang(id);
+ALTER TABLE hoadon ADD CONSTRAINT fk_hoadon_khuyenmai FOREIGN KEY (khuyenmai_id) REFERENCES khuyenmai(id);
+-- chitiethoadon
+ALTER TABLE chitiethoadon ADD CONSTRAINT fk_chitiethoadon_hoadon FOREIGN KEY (hoadon_id) REFERENCES hoadon(id);
+ALTER TABLE chitiethoadon ADD CONSTRAINT fk_chitiethoadon_sanpham FOREIGN KEY (sanpham_id) REFERENCES sanpham(id);
+-- khuyenmai
+-- chitietkhuyenmai
+CREATE UNIQUE INDEX loaikhuyenmai_code
+ON loaikhuyenmai (code);
+ALTER TABLE chitietkhuyenmai ADD CONSTRAINT fk_chitietkhuyenmai_khuyenmai FOREIGN KEY (khuyenmai_id) REFERENCES khuyenmai(id);
+ALTER TABLE chitietkhuyenmai ADD CONSTRAINT fk_chitietkhuyenmai_loaikhuyenmai FOREIGN KEY (loaikhuyenmai_code) REFERENCES loaikhuyenmai(code);
+ALTER TABLE chitietkhuyenmai ADD CONSTRAINT fk_chitietkhuyenmai_sanpham FOREIGN KEY (sanpham_id) REFERENCES sanpham(id);
+-- dieukienkhuyenmai
+ALTER TABLE dieukienkhuyenmai ADD CONSTRAINT fk_dieukienkhuyenmai_khuyenmai FOREIGN KEY (khuyenmai_id) REFERENCES khuyenmai(id);
+ALTER TABLE dieukienkhuyenmai ADD CONSTRAINT fk_dieukienkhuyenmai_loaikhuyenmai FOREIGN KEY (loaikhuyenmai_code) REFERENCES loaikhuyenmai(code);
+ALTER TABLE dieukienkhuyenmai ADD CONSTRAINT fk_dieukienkhuyenmai_sanpham FOREIGN KEY (sanpham_id) REFERENCES sanpham(id);
+-- taikhoannhanvien
+CREATE UNIQUE INDEX role_code
+ON role (code);
+ALTER TABLE taikhoannhanvien ADD CONSTRAINT fk_taikhoannhanvien_nhanvien FOREIGN KEY (nhanvien_id) REFERENCES nhanvien(id);
+ALTER TABLE taikhoannhanvien ADD CONSTRAINT fk_taikhoannhanvien_role FOREIGN KEY (role_code) REFERENCES role(code);
+-- taikhoankhachhang
+ALTER TABLE taikhoankhachhang ADD CONSTRAINT fk_taikhoankhachhang_khachhang FOREIGN KEY (khachhang_id) REFERENCES khachhang(id);
+-- nhacungcap
+-- nccsanpham
+ALTER TABLE nccsanpham ADD CONSTRAINT fk_nccsanpham_sanpham FOREIGN KEY (sanpham_id) REFERENCES sanpham(id);
+ALTER TABLE nccsanpham ADD CONSTRAINT fk_nccsanpham_nhacungcap FOREIGN KEY (nhacungcap_id) REFERENCES nhacungcap(id);
+-- comment
+ALTER TABLE comment ADD CONSTRAINT fk_comment_sanpham FOREIGN KEY (sanpham_id) REFERENCES sanpham(id);
+ALTER TABLE comment ADD CONSTRAINT fk_comment_khachhang FOREIGN KEY (khachhang_id) REFERENCES khachhang(id);
+-- hoadonnhap
+ALTER TABLE hoadonnhap ADD CONSTRAINT fk_hoadonnhap_nhacungcap FOREIGN KEY (nhacungcap_id) REFERENCES nhacungcap(id);
+ALTER TABLE hoadonnhap ADD CONSTRAINT fk_hoadonnhap_nhanvien FOREIGN KEY (nhanvien_id) REFERENCES nhanvien(id);
+-- chitiethoadonnhap
+ALTER TABLE chitiethoadonnhap ADD CONSTRAINT fk_chitiethoadonnhap_hoadonnhap FOREIGN KEY (hoadonnhap_id) REFERENCES hoadonnhap(id);
+ALTER TABLE chitiethoadonnhap ADD CONSTRAINT fk_chitiethoadonnhap_sanpham FOREIGN KEY (sanpham_id) REFERENCES sanpham(id);
