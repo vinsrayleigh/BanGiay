@@ -213,7 +213,7 @@ create table chitietdonhang(
     giatien int null,
     PRIMARY KEY(donhang_id,sanpham_id)
 );
--- don hang
+-- don hangaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 ALTER TABLE donhang ADD constraint fk_donhang_nhanvien foreign key (nhanvien_id) references nhanvien(id);
 ALTER TABLE donhang ADD constraint fk_donhang_khachhang foreign key (khachhang_id) references khachhang(id);
 ALTER TABLE chitietdonhang ADD constraint fk_chitietdonhang_donhang foreign key (donhang_id) references donhang(id);
