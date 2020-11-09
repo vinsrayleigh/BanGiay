@@ -91,7 +91,9 @@ CREATE TABLE hoadon(
 	khachhang_id bigint not  null,
     nhanvien_id bigint not null,
     tongtien int null,
-    khuyenmai_id bigint,
+    khuyenmai_id bigint null,
+    diachi_id bigint null,
+    phiship int null,
     ngay timestamp null,
         createddate TIMESTAMP NULL,
   modifieddate TIMESTAMP NULL,
@@ -202,6 +204,8 @@ create table donhang(
     nhanvien_id bigint not null,
     khachhang_id bigint not null,
     khuyenmai_id bigint null,
+    diachi_id bigint not null,
+    phiship int null,
     tongtien int null,
     ngaylapdonhang timestamp not null,
     trangthai int null
@@ -213,7 +217,19 @@ create table chitietdonhang(
     giatien int null,
     PRIMARY KEY(donhang_id,sanpham_id)
 );
--- don hangaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+create table diachi(
+	id bigint not null PRIMARY KEY auto_increment,
+    khachhang_id bigint not null,
+    province varchar(100) not null,
+    district varchar(100) not null,
+    ward_street varchar(100) not null,
+    address varchar(255) null
+);
+
+ALTER TABLE diachi ADD constraint fk_diachi_khachhang foreign key (khachhang_id) references khachhang(id);
+-- don hang
+ALTER TABLE hoadon ADD constraint fk_hoadon_diachi foreign key (diachi_id) references diachi(id);
+ALTER TABLE donhang ADD constraint fk_donhang_diachi foreign key (diachi_id) references diachi(id);
 ALTER TABLE donhang ADD constraint fk_donhang_nhanvien foreign key (nhanvien_id) references nhanvien(id);
 ALTER TABLE donhang ADD constraint fk_donhang_khachhang foreign key (khachhang_id) references khachhang(id);
 ALTER TABLE chitietdonhang ADD constraint fk_chitietdonhang_donhang foreign key (donhang_id) references donhang(id);
@@ -268,6 +284,6 @@ ALTER TABLE comment ADD CONSTRAINT fk_comment_khachhang FOREIGN KEY (khachhang_i
 -- hoadonnhap
 ALTER TABLE hoadonnhap ADD CONSTRAINT fk_hoadonnhap_nhacungcap FOREIGN KEY (nhacungcap_id) REFERENCES nhacungcap(id);
 ALTER TABLE hoadonnhap ADD CONSTRAINT fk_hoadonnhap_nhanvien FOREIGN KEY (nhanvien_id) REFERENCES nhanvien(id);
--- chitiethoadonnhap;;
+-- chitiethoadonnhap
 ALTER TABLE chitiethoadonnhap ADD CONSTRAINT fk_chitiethoadonnhap_hoadonnhap FOREIGN KEY (hoadonnhap_id) REFERENCES hoadonnhap(id);
 ALTER TABLE chitiethoadonnhap ADD CONSTRAINT fk_chitiethoadonnhap_sanpham FOREIGN KEY (sanpham_id) REFERENCES sanpham(id);
