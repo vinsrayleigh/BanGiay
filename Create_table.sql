@@ -3,11 +3,7 @@ use banhang;
 CREATE TABLE role(
   id bigint NOT NULL PRIMARY KEY auto_increment,
   name VARCHAR(255) NOT NULL,
-  code VARCHAR(255) NOT NULL,
-  createddate TIMESTAMP NULL,
-  modifieddate TIMESTAMP NULL,
-  createdby VARCHAR(255) NULL,
-  modifiedby VARCHAR(255) NULL
+  code VARCHAR(255) NOT NULL
 );
 CREATE TABLE sanpham(
   id bigint NOT NULL PRIMARY KEY auto_increment,
@@ -18,11 +14,7 @@ CREATE TABLE sanpham(
 mainprice int null,
 currentprice int null,
 amount int  null,
-loaisanpham_id bigint null,
-  createddate TIMESTAMP NULL,
-  modifieddate TIMESTAMP NULL,
-  createdby VARCHAR(255) NULL,
-  modifiedby VARCHAR(255) NULL
+loaisanpham_id bigint null
 );
 CREATE TABLE loaisanpham(
 	id bigint NOT NULL PRIMARY KEY auto_increment,
@@ -32,24 +24,17 @@ CREATE TABLE loaisanpham(
 CREATE TABLE khachhang(
   id bigint NOT NULL PRIMARY KEY auto_increment,
    name VARCHAR(255)  NULL,
-	phone char(10)  null,
+	phone varchar(10)  null,
+    email varchar(100) null,
 	status int not null,
-    point int null,
-  createddate TIMESTAMP NULL,
-  modifieddate TIMESTAMP NULL,
-  createdby VARCHAR(255) NULL,
-  modifiedby VARCHAR(255) NULL
+    point int null
 );
 CREATE TABLE nhanvien(
   id bigint NOT NULL PRIMARY KEY auto_increment,
    name VARCHAR(255)  NULL,
-	phone char(10)  null,
+	phone varchar(10)  null,
 	status int not null,
-    idcard char(12) null,
-  createddate TIMESTAMP NULL,
-  modifieddate TIMESTAMP NULL,
-  createdby VARCHAR(255) NULL,
-  modifiedby VARCHAR(255) NULL
+    cmnd char(12) null
 );
 CREATE TABLE lichlamtuan(
   nhanvien_id bigint not null PRIMARY KEY,
@@ -94,11 +79,7 @@ CREATE TABLE hoadon(
     khuyenmai_id bigint null,
     diachi_id bigint null,
     phiship int null,
-    ngay timestamp null,
-        createddate TIMESTAMP NULL,
-  modifieddate TIMESTAMP NULL,
-  createdby VARCHAR(255) NULL,
-  modifiedby VARCHAR(255) NULL
+    ngay timestamp null
 );
 CREATE TABLE chitiethoadon(
 	hoadon_id bigint not null,
@@ -139,30 +120,20 @@ CREATE TABLE taikhoannhanvien(
 	username varchar(255) not null,
     password varchar(6) not null,
 	nhanvien_id bigint not  null,
-    role_code varchar(6) not null,
-	  createddate TIMESTAMP NULL,
-  modifieddate TIMESTAMP NULL,
-  createdby VARCHAR(255) NULL,
-  modifiedby VARCHAR(255) NULL
+    role_code varchar(6) not null
 );
 CREATE TABLE taikhoankhachhang(
 	id bigint NOT NULL PRIMARY KEY auto_increment,
 	username varchar(255) not null,
     password varchar(6) not null,
-	khachhang_id bigint not  null,
-	  createddate TIMESTAMP NULL,
-  modifieddate TIMESTAMP NULL,
-  createdby VARCHAR(255) NULL,
-  modifiedby VARCHAR(255) NULL
+	khachhang_id bigint not  null
 );
 CREATE TABLE nhacungcap(
 	id bigint NOT NULL PRIMARY KEY auto_increment,
 	name varchar(255) not null,
 	address varchar(255) null,
-	  createddate TIMESTAMP NULL,
-  modifieddate TIMESTAMP NULL,
-  createdby VARCHAR(255) NULL,
-  modifiedby VARCHAR(255) NULL
+    phone varchar(10) null,
+    email varchar(10) null
 );
 CREATE TABLE nccsanpham(
 	nhacungcap_id bigint not null,
@@ -174,11 +145,7 @@ CREATE TABLE comment(
 	sanpham_id bigint not null,
     khachhang_id bigint not null,
     danhgia int null,
-    content text null,
-	  createddate TIMESTAMP NULL,
-  modifieddate TIMESTAMP NULL,
-  createdby VARCHAR(255) NULL,
-  modifiedby VARCHAR(255) NULL
+    content text null
   
 );
 CREATE TABLE hoadonnhap(
@@ -186,11 +153,7 @@ CREATE TABLE hoadonnhap(
 	nhacungcap_id bigint not null,
     nhanvien_id bigint not null,
     tongtien int null,
-    ngay timestamp null,
-        createddate TIMESTAMP NULL,
-  modifieddate TIMESTAMP NULL,
-  createdby VARCHAR(255) NULL,
-  modifiedby VARCHAR(255) NULL
+    ngay timestamp null
 );
 CREATE TABLE chitiethoadonnhap(
 	hoadonnhap_id bigint not null,
@@ -220,13 +183,23 @@ create table chitietdonhang(
 create table diachi(
 	id bigint not null PRIMARY KEY auto_increment,
     khachhang_id bigint not null,
-    province varchar(100) not null,
-    district varchar(100) not null,
+    province_id bigint not null,
+    district_id bigint not null,
     ward_street varchar(100) not null,
     address varchar(255) null
 );
-
-ALTER TABLE diachi ADD constraint fk_diachi_khachhang foreign key (khachhang_id) references khachhang(id);
+create table province(
+	id bigint not null PRIMARY KEY auto_increment,
+    name varchar(50) not null
+);
+create  table district(
+	id bigint not null PRIMARY KEY auto_increment,
+    province_id bigint	not null,
+    name varchar(50)
+);
+-- diachi
+ALTER TABLE diachi ADD constraint fk_diachi_province foreign key (province_id) references province(id);
+ALTER TABLE diachi ADD constraint fk_diachi_district foreign key (district_id) references district(id);
 -- don hang
 ALTER TABLE hoadon ADD constraint fk_hoadon_diachi foreign key (diachi_id) references diachi(id);
 ALTER TABLE donhang ADD constraint fk_donhang_diachi foreign key (diachi_id) references diachi(id);
