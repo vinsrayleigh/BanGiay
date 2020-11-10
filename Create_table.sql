@@ -197,6 +197,7 @@ create  table district(
     province_id bigint	not null,
     name varchar(50)
 );
+-- diachi
 ALTER TABLE diachi ADD constraint fk_diachi_province foreign key (province_id) references province(id);
 ALTER TABLE diachi ADD constraint fk_diachi_district foreign key (district_id) references district(id);
 -- don hang
