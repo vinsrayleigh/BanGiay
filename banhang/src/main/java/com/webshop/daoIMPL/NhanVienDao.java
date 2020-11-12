@@ -12,9 +12,8 @@ public class NhanVienDao extends AbstracDao<NhanVienModel> implements INhanVienD
 
 	@Override
 	public Long save(NhanVienModel nhanvien) {
-		String sql = "insert into nhanvien (name,phone,status,idcard,createddate,createdby) values(?,?,?,?,?,?)";
-		return insert(sql, nhanvien.getName(), nhanvien.getPhone(), nhanvien.getStatus(), nhanvien.getIdCard(),
-				nhanvien.getCreatedDate(), nhanvien.getCreatedBy());
+		String sql = "insert into nhanvien (name,phone,status,cmnd) values(?,?,?,?)";
+		return insert(sql, nhanvien.getName(), nhanvien.getPhone(), nhanvien.getStatus(), nhanvien.getIdCard());
 	}
 
 	@Override

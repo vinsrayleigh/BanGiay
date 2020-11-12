@@ -16,14 +16,14 @@ import com.webshop.maper.RowMapper;
 public class AbstracDao<T> implements GenericDAO<T> {
 
 	public Connection getConnection() {
+		String userName = "root";
+		String password = "";
+		String url = "jdbc:mysql://35.240.132.238:3306/banhang?autoReconnect=true&useSSL=false";
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			String url = "jdbc:mysql://localhost:3306/banhang";
-			String username = "root";
-			String password = "1234";
-			return DriverManager.getConnection(url, username, password);
-		} catch (ClassNotFoundException | SQLException e) {
-
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			Connection conn = DriverManager.getConnection(url, userName, password);
+			return conn;
+		} catch (Exception e) {
 			return null;
 		}
 	}
@@ -134,7 +134,10 @@ public class AbstracDao<T> implements GenericDAO<T> {
 			connection.setAutoCommit(false);
 			statement = connection.prepareStatement(sql, statement.RETURN_GENERATED_KEYS);
 			setparameter(statement, parameters);
-			statement.executeUpdate();
+			int row = statement.executeUpdate();
+			if(row>0) {
+				System.out.print(row);
+			}
 			resultset = statement.getGeneratedKeys();
 			if (resultset.next()) {
 				id = resultset.getLong(1);

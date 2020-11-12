@@ -7,11 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link
 </head>
 
 <body>
-
 	<!-- Begin Mobile Menu Area -->
 	<div class="mobile-menu-area d-lg-none d-xl-none col-12">
 		<div class="container">

@@ -18,14 +18,11 @@ public class NhanVienservice implements INhanVienService {
 	private INhanVienDao nhanviendao;
 	@Override
 	public NhanVienModel save(NhanVienModel nhanvien) {
-		
 		nhanvien.setCreatedBy("");
 		nhanvien.setCreatedDate(new Timestamp(System.currentTimeMillis()));
 		Long nhanvienid=nhanviendao.save(nhanvien);
 		return nhanviendao.findOne(nhanvienid);
 	}
-
-
 	@Override
 	public NhanVienModel upd(NhanVienModel nhanvien) {
 		NhanVienModel oldnhanvien=nhanviendao.findOne(nhanvien.getId());
