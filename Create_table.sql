@@ -3,7 +3,11 @@ use banhang;
 CREATE TABLE role(
   id bigint NOT NULL PRIMARY KEY auto_increment,
   name VARCHAR(255) NOT NULL,
-  code VARCHAR(255) NOT NULL
+  code VARCHAR(255) NOT NULL,
+  modifiedby varchar(255),
+  modifieddate timestamp,
+  createdby varchar(255),
+  createddate timestamp
 );
 CREATE TABLE sanpham(
   id bigint NOT NULL PRIMARY KEY auto_increment,
@@ -14,12 +18,20 @@ CREATE TABLE sanpham(
 mainprice int null,
 currentprice int null,
 amount int  null,
-loaisanpham_id bigint null
+loaisanpham_id bigint null,
+  modifiedby varchar(255),
+  modifieddate timestamp,
+  createdby varchar(255),
+  createddate timestamp
 );
 CREATE TABLE loaisanpham(
 	id bigint NOT NULL PRIMARY KEY auto_increment,
     code VARCHAR(255),
-    name varchar(255)
+    name varchar(255),
+  modifiedby varchar(255),
+  modifieddate timestamp,
+  createdby varchar(255),
+  createddate timestamp
 );
 CREATE TABLE khachhang(
   id bigint NOT NULL PRIMARY KEY auto_increment,
@@ -27,26 +39,42 @@ CREATE TABLE khachhang(
 	phone varchar(10)  null,
     email varchar(100) null,
 	status int not null,
-    point int null
+    point int null,
+  modifiedby varchar(255),
+  modifieddate timestamp,
+  createdby varchar(255),
+  createddate timestamp
 );
 CREATE TABLE nhanvien(
   id bigint NOT NULL PRIMARY KEY auto_increment,
    name VARCHAR(255)  NULL,
 	phone varchar(10)  null,
 	status int not null,
-    cmnd char(12) null
+    cmnd char(12) null,
+  modifiedby varchar(255),
+  modifieddate timestamp,
+  createdby varchar(255),
+  createddate timestamp
 );
 CREATE TABLE lichlamtuan(
   nhanvien_id bigint not null PRIMARY KEY,
 	thu2 varchar(12) null,
     thu3 varchar(12) null,
-    thu4 varchar(12) null,thu5 varchar(12) null,thu6 varchar(12) null,thu7 varchar(12) null,CN varchar(12) null
+    thu4 varchar(12) null,thu5 varchar(12) null,thu6 varchar(12) null,thu7 varchar(12) null,CN varchar(12) null,
+  modifiedby varchar(255),
+  modifieddate timestamp,
+  createdby varchar(255),
+  createddate timestamp
 );
 CREATE TABLE lichdangkytuan(
   nhanvien_id bigint not null PRIMARY KEY,
 	thu2 varchar(12) null,
     thu3 varchar(12) null,
-    thu4 varchar(12) null,thu5 varchar(12) null,thu6 varchar(12) null,thu7 varchar(12) null,CN varchar(12) null
+    thu4 varchar(12) null,thu5 varchar(12) null,thu6 varchar(12) null,thu7 varchar(12) null,CN varchar(12) null,
+  modifiedby varchar(255),
+  modifieddate timestamp,
+  createdby varchar(255),
+  createddate timestamp
 );
 CREATE TABLE giolamtheoca(
 id bigint NOT NULL PRIMARY KEY auto_increment,
@@ -54,7 +82,12 @@ id bigint NOT NULL PRIMARY KEY auto_increment,
 	ngay timestamp null,
     ca int null,
     giolam int null,
-    luong1h int null
+    luong1h int null,
+    
+  modifiedby varchar(255),
+  modifieddate timestamp,
+  createdby varchar(255),
+  createddate timestamp
 );
 CREATE TABLE truluong(
 id bigint NOT NULL PRIMARY KEY auto_increment,
@@ -62,14 +95,22 @@ id bigint NOT NULL PRIMARY KEY auto_increment,
 	ngay timestamp null,
     ca int null,
     luongbitru int null,
-    note text null
+    note text null,
+  modifiedby varchar(255),
+  modifieddate timestamp,
+  createdby varchar(255),
+  createddate timestamp
 );
 CREATE TABLE chamcong(
 id bigint NOT NULL PRIMARY KEY auto_increment,
   nhanvien_id bigint not null,
 	thang int  null,
     nam int null,
-    luongnhanduoc int null
+    luongnhanduoc int null,
+  modifiedby varchar(255),
+  modifieddate timestamp,
+  createdby varchar(255),
+  createddate timestamp
 );
 CREATE TABLE hoadon(
   id bigint NOT NULL PRIMARY KEY auto_increment,
@@ -79,20 +120,32 @@ CREATE TABLE hoadon(
     khuyenmai_id bigint null,
     diachi_id bigint null,
     phiship int null,
-    ngay timestamp null
+    ngay timestamp null,
+  modifiedby varchar(255),
+  modifieddate timestamp,
+  createdby varchar(255),
+  createddate timestamp
 );
 CREATE TABLE chitiethoadon(
 	hoadon_id bigint not null,
 	sanpham_id bigint not  null,
     soluong int null,
     giasanpham int null,
+  modifiedby varchar(255),
+  modifieddate timestamp,
+  createdby varchar(255),
+  createddate timestamp,
     PRIMARY KEY(hoadon_id, sanpham_id)
 );
 CREATE TABLE khuyenmai(
 	id bigint NOT NULL PRIMARY KEY auto_increment,
     content text null,
 	ngaybatdau timestamp null,
-    ngayketthuc timestamp null
+    ngayketthuc timestamp null,
+  modifiedby varchar(255),
+  modifieddate timestamp,
+  createdby varchar(255),
+  createddate timestamp
 );
 CREATE TABLE chitietkhuyenmai(
 	khuyenmai_id bigint not null,
@@ -120,20 +173,32 @@ CREATE TABLE taikhoannhanvien(
 	username varchar(255) not null,
     password varchar(6) not null,
 	nhanvien_id bigint not  null,
-    role_code varchar(6) not null
+    role_code varchar(6) not null,
+  modifiedby varchar(255),
+  modifieddate timestamp,
+  createdby varchar(255),
+  createddate timestamp
 );
 CREATE TABLE taikhoankhachhang(
 	id bigint NOT NULL PRIMARY KEY auto_increment,
 	username varchar(255) not null,
     password varchar(6) not null,
-	khachhang_id bigint not  null
+	khachhang_id bigint not  null,
+  modifiedby varchar(255),
+  modifieddate timestamp,
+  createdby varchar(255),
+  createddate timestamp
 );
 CREATE TABLE nhacungcap(
 	id bigint NOT NULL PRIMARY KEY auto_increment,
 	name varchar(255) not null,
 	address varchar(255) null,
     phone varchar(10) null,
-    email varchar(10) null
+    email varchar(10) null,
+  modifiedby varchar(255),
+  modifieddate timestamp,
+  createdby varchar(255),
+  createddate timestamp
 );
 CREATE TABLE nccsanpham(
 	nhacungcap_id bigint not null,
@@ -145,7 +210,11 @@ CREATE TABLE comment(
 	sanpham_id bigint not null,
     khachhang_id bigint not null,
     danhgia int null,
-    content text null
+    content text null,
+  modifiedby varchar(255),
+  modifieddate timestamp,
+  createdby varchar(255),
+  createddate timestamp
   
 );
 CREATE TABLE hoadonnhap(
@@ -153,7 +222,11 @@ CREATE TABLE hoadonnhap(
 	nhacungcap_id bigint not null,
     nhanvien_id bigint not null,
     tongtien int null,
-    ngay timestamp null
+    ngay timestamp null,
+  modifiedby varchar(255),
+  modifieddate timestamp,
+  createdby varchar(255),
+  createddate timestamp
 );
 CREATE TABLE chitiethoadonnhap(
 	hoadonnhap_id bigint not null,
@@ -171,7 +244,11 @@ create table donhang(
     phiship int null,
     tongtien int null,
     ngaylapdonhang timestamp not null,
-    trangthai int null
+    trangthai int null,
+  modifiedby varchar(255),
+  modifieddate timestamp,
+  createdby varchar(255),
+  createddate timestamp
 );
 create table chitietdonhang(
 	donhang_id bigint not null,
@@ -182,11 +259,16 @@ create table chitietdonhang(
 );
 create table diachi(
 	id bigint not null PRIMARY KEY auto_increment,
+    phone varchar(10) null,
     khachhang_id bigint not null,
     province_id bigint not null,
     district_id bigint not null,
     ward_street varchar(100) not null,
-    address varchar(255) null
+    address varchar(255) null,
+  modifiedby varchar(255),
+  modifieddate timestamp,
+  createdby varchar(255),
+  createddate timestamp
 );
 create table province(
 	id bigint not null PRIMARY KEY auto_increment,
