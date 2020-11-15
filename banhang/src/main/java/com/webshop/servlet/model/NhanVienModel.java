@@ -7,8 +7,6 @@ public class NhanVienModel extends AbstracModel<NhanVienModel>{
 	private Integer status;
 	private String idCard;
 
-
-
 	public String getName() {
 		return name;
 	}

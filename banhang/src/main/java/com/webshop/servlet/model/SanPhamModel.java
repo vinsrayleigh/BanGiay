@@ -6,7 +6,7 @@ public class SanPhamModel extends AbstracModel <SanPhamModel>{
 	private String name;
 	private String size;
 	private String image;
-	private Integer MainPrice;
+	private Integer mainPrice;
 	private Integer currentPrice;
 	private Integer amount;
 	private Long LoaiSanPham_id;
@@ -47,11 +47,11 @@ public class SanPhamModel extends AbstracModel <SanPhamModel>{
 	}
 
 	public Integer getMainPrice() {
-		return MainPrice;
+		return mainPrice;
 	}
 
 	public void setMainPrice(Integer mainPrice) {
-		MainPrice = mainPrice;
+		this.mainPrice = mainPrice;
 	}
 
 	public Integer getCurrentPrice() {
