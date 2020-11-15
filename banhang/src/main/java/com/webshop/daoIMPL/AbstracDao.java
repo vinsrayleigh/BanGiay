@@ -17,10 +17,10 @@ public class AbstracDao<T> implements GenericDAO<T> {
 
 	public Connection getConnection() {
 		String userName = "root";
-		String password = "";
-		String url = "jdbc:mysql://35.240.132.238:3306/banhang?autoReconnect=true&useSSL=false";
+		String password = "123456";
+		String url = "jdbc:mysql://localhost:3306/banhang";
 		try {
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection(url, userName, password);
 			return conn;
 		} catch (Exception e) {
@@ -88,7 +88,7 @@ public class AbstracDao<T> implements GenericDAO<T> {
 	}
 
 	@Override
-	public void update(String sql, Object... parameters) {
+	public boolean update(String sql, Object... parameters) {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		try {
@@ -96,8 +96,13 @@ public class AbstracDao<T> implements GenericDAO<T> {
 			connection.setAutoCommit(false);
 			statement = connection.prepareStatement(sql);
 			setparameter(statement, parameters);
-			statement.executeUpdate();
+			int row = statement.executeUpdate();
 			connection.commit();
+			if(row>0) {
+				return true;
+			}else {
+				return false;
+			}
 		} catch (SQLException e) {
 			if (connection != null) {
 				try {
@@ -120,6 +125,7 @@ public class AbstracDao<T> implements GenericDAO<T> {
 				e2.printStackTrace();
 			}
 		}
+		return false;
 	}
 
 	@Override
@@ -135,9 +141,6 @@ public class AbstracDao<T> implements GenericDAO<T> {
 			statement = connection.prepareStatement(sql, statement.RETURN_GENERATED_KEYS);
 			setparameter(statement, parameters);
 			int row = statement.executeUpdate();
-			if(row>0) {
-				System.out.print(row);
-			}
 			resultset = statement.getGeneratedKeys();
 			if (resultset.next()) {
 				id = resultset.getLong(1);

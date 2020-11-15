@@ -14,8 +14,8 @@ public class NhanVienMaper implements RowMapper<NhanVienModel> {
 			news.setId(resultset.getLong("id"));
 			news.setName(resultset.getString("name"));
 			news.setStatus(resultset.getInt("status"));
-			news.setIdCard(resultset.getString("idcard"));
-		
+			news.setIdCard(resultset.getString("cmnd"));
+			//news.setCreatedBy(resultset.getString("createdby"));
 			news.setCreatedDate(resultset.getTimestamp("createddate"));
 			if(resultset.getTimestamp("modifieddate")!=null) {
 				news.setModifiedDate(resultset.getTimestamp("modifieddate"));
