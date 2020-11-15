@@ -175,7 +175,7 @@ public class AbstracDao<T> implements GenericDAO<T> {
 	}
 
 	@Override
-	public void delete(String sql, Object... parameters) {
+	public boolean delete(String sql, Object... parameters) {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		try {
@@ -183,8 +183,15 @@ public class AbstracDao<T> implements GenericDAO<T> {
 			connection.setAutoCommit(false);
 			statement = connection.prepareStatement(sql);
 			setparameter(statement, parameters);
-			statement.executeUpdate();
+			int row = statement.executeUpdate();
 			connection.commit();
+			if( row>0 ) {
+				return true;
+			}else {
+				return false;
+			}
+				 
+			
 		} catch (SQLException e) {
 			if (connection != null) {
 				try {
@@ -207,6 +214,7 @@ public class AbstracDao<T> implements GenericDAO<T> {
 				e2.printStackTrace();
 			}
 		}
+		return false;
 	}
 
 	@Override
