@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Thêm nhân viên | Shop CNPM </title>
+    <title>Tài khoản khách hàng | Shop CNPM </title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -268,15 +268,15 @@
                         </a>
                     </li>
 
-                    <li class="active treeview">
+                    <li class="treeview">
                         <a href="#">
                             <i class="fa fa-group"></i> <span>Quản lý nhân viên</span>
                             <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="DanhSachNhanVien.html"><i class="fa fa-list-alt"></i> Danh sách nhân viên</a></li>
-                            <li class="active"><a href="ThemNhanVien.html"><i class="fa fa-user-plus"></i> Thêm nhân viên</a></li>
-
+                            <li><a href="ThemNhanVien.html"><i class="fa fa-user-plus"></i> Thêm nhân viên</a></li>
+                            <!-- <li><a href="#"><i class="fa fa-user-plus"></i></a></li> -->
 
                             <li class="treeview">
                                 <a href="#">
@@ -304,14 +304,14 @@
                         </ul>
                     </li>
 
-                    <li class="treeview">
+                    <li class="active treeview">
                         <a href="#">
                             <i class="fa fa-expeditedssl"></i> <span>Quản lý tài khoản</span>
                             <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="DanhSachTaiKhoanNhanVien.html"><i class="fa fa-list-alt"></i> Tài khoản nhân viên</a></li>
-                            <li><a href="DanhSachTaiKhoanKhachHang.html"><i class="fa fa-list-alt"></i> Tài khoản khách hàng</a></li>
+                            <li class="active"><a href="DanhSachTaiKhoanKhachHang.html"><i class="fa fa-list-alt"></i> Tài khoản khách hàng</a></li>
                         </ul>
                     </li>
 
@@ -485,11 +485,11 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    <i class="fa fa-group"></i> Quản lý nhân viên
+                    <i class="fa fa-expeditedssl"></i> Quản lý tài khoản
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-group"></i> Quản lý nhân viên</a></li>
-                    <li class="active">Thêm nhân viên</li>
+                    <li><a href="#"><i class="fa fa-expeditedssl"></i> Quản lý tài khoản</a></li>
+                    <li class="active">Tài khoản khách hàng</li>
                 </ol>
             </section>
 
@@ -500,138 +500,216 @@
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">
-                            <i class="fa fa-user-plus"></i> Thêm nhân viên
+                            <i class="fa fa-list-alt"></i> Tài khoản khách hàng
                         </h3>
                         <p style="margin-top: 1%;"></p>
 
                     </div>
-                    <div class="box-body" style="margin-left: 1%;">
-                        <div class="box box-primary" style="width: 60%;">
+                    <div class="box-body">
+                        <div class="input-group margin">
+                            <input type="text" class="form-control" placeholder="Tìm kiếm...">
+                            <span class="input-group-btn">
+                                    <button type="button" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
+                            </span>
 
-                            <!-- /.box-header -->
-                            <!-- form start -->
-                            <form role="form">
-                                <div class="box-body">
-                                    <div class="form-group">
-                                        <label for="inputTenNhanVien">Họ tên</label>
-                                        <input type="text" class="form-control" id="inputTenNhanVien" placeholder="Nhập họ tên...">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputSDT">Số điện thoại</label>
-                                        <input type="text" class="form-control" id="inputSDT" placeholder="Nhập số điện thoại...">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputSDT">CMND</label>
-                                        <input type="text" class="form-control" id="inputSDT" placeholder="Nhập CMND...">
-                                    </div>
+                            <select class="form-control" style="width: fit-content;margin-left: inherit;">
+                                <option>-----</option>
+                                <option>Tên tài khoản</option>
+                                <option>Mã khách hàng</option>
+                                <option>Trạng thái</option>
+                              </select>
+                        </div>
+                    </div>
 
-                                    <div class="form-group">
-                                        <label>Giới tính</label>
-                                        <div class="radio">
-                                            <label style="margin-right: 5%;">
-                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="optionNam" checked="">
-                                            Nam
-                                          </label>
-                                            <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="optionNu">
-                                            Nữ
-                                          </label>
-                                        </div>
-                                    </div>
+                    <p style="margin-top: 1%;"></p>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="box">
 
-                                    <hr>
-                                    <div class="form-group">
-                                        <label for="inputTenTaiKhoan">Tên tài khoản</label>
-                                        <input type="text" class="form-control" id="inputTenTaiKhoan" placeholder="Nhập tên tài khoản...">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="inputMatKhau">Mật khẩu</label>
-                                        <input type="password" class="form-control" id="inputMatKhau" placeholder="Nhập mật khẩu...">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputMatKhau">Xác nhận mật khẩu</label>
-                                        <input type="password" class="form-control" id="inputMatKhau" placeholder="Nhập lại mật khẩu...">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Loại tài khoản</label>
-                                        <select class="form-control">
-                                            <option selected>Nhân viên</option>
-                                            <option >Quản lý</option>
-                                          </select>
-                                    </div>
+                                <!-- /.box-header -->
+                                <div class="box-body table-responsive no-padding">
+                                    <table class="table table-hover">
+                                        <tr>
+                                            <th>STT</th>
+                                            <th>Tên tài khoản</th>
+                                            <th>Mã khách hàng</th>
+                                            <th>Trạng thái</th>
+                                            <th>Tùy chọn</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>khachhang1</td>
+                                            <td>1</td>
+                                            <td>
+                                                <span class="label label-success">Hoạt động</span>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn bg-navy" data-toggle="modal" data-target="#modal-resetpassword">
+                                                      <i class="fa fa-refresh"></i> Reset mật khẩu
+                                                  </button>
+                                                <button type="button " class="btn bg-orange btn-flat" data-toggle="modal" data-target="#modal-mokhoa">
+                                                    <i class="fa fa-lock"></i> Mở/Khóa
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>khachhang1</td>
+                                            <td>1</td>
+                                            <td>
+                                                <span class="label label-success">Hoạt động</span>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn bg-navy" data-toggle="modal" data-target="#modal-resetpassword">
+                                                      <i class="fa fa-refresh"></i> Reset mật khẩu
+                                                  </button>
+                                                <button type="button " class="btn bg-orange btn-flat" data-toggle="modal" data-target="#modal-mokhoa">
+                                                    <i class="fa fa-lock"></i> Mở/Khóa
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>khachhang1</td>
+                                            <td>1</td>
+                                            <td>
+                                                <span class="label label-success">Hoạt động</span>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn bg-navy" data-toggle="modal" data-target="#modal-resetpassword">
+                                                      <i class="fa fa-refresh"></i> Reset mật khẩu
+                                                  </button>
+                                                <button type="button " class="btn bg-orange btn-flat" data-toggle="modal" data-target="#modal-mokhoa">
+                                                    <i class="fa fa-lock"></i> Mở/Khóa
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>khachhang1</td>
+                                            <td>1</td>
+                                            <td>
+                                                <span class="label label-success">Hoạt động</span>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn bg-navy" data-toggle="modal" data-target="#modal-resetpassword">
+                                                      <i class="fa fa-refresh"></i> Reset mật khẩu
+                                                  </button>
+                                                <button type="button " class="btn bg-orange btn-flat" data-toggle="modal" data-target="#modal-mokhoa">
+                                                    <i class="fa fa-lock"></i> Mở/Khóa
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>khachhang1</td>
+                                            <td>1</td>
+                                            <td>
+                                                <span class="label label-danger">Khóa</span>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn bg-navy" data-toggle="modal" data-target="#modal-resetpassword">
+                                                      <i class="fa fa-refresh"></i> Reset mật khẩu
+                                                  </button>
+                                                <button type="button " class="btn bg-orange btn-flat" data-toggle="modal" data-target="#modal-mokhoa">
+                                                    <i class="fa fa-lock"></i> Mở/Khóa
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>khachhang1</td>
+                                            <td>1</td>
+                                            <td>
+                                                <span class="label label-success">Hoạt động</span>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn bg-navy" data-toggle="modal" data-target="#modal-resetpassword">
+                                                      <i class="fa fa-refresh"></i> Reset mật khẩu
+                                                  </button>
+                                                <button type="button " class="btn bg-orange btn-flat" data-toggle="modal" data-target="#modal-mokhoa">
+                                                    <i class="fa fa-lock"></i> Mở/Khóa
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </div>
+                                <!-- /.box-body -->
+                                <div class="dataTables_paginate paging_simple_numbers " id="example2_paginate ">
+                                    <ul class="pagination ">
+                                        <li class="paginate_button previous disabled " id="example2_previous "><a href="# " aria-controls="example2 " data-dt-idx="0 " tabindex="0 ">Trang trước</a></li>
+                                        <li class="paginate_button active "><a href="# " aria-controls="example2 " data-dt-idx="1 " tabindex="0 ">1</a></li>
+                                        <li class="paginate_button "><a href="# " aria-controls="example2 " data-dt-idx="2 " tabindex="0 ">2</a></li>
+                                        <li class="paginate_button "><a href="# " aria-controls="example2 " data-dt-idx="3 " tabindex="0 ">3</a></li>
+                                        <li class="paginate_button "><a href="# " aria-controls="example2 " data-dt-idx="4 " tabindex="0 ">4</a></li>
+                                        <li class="paginate_button "><a href="# " aria-controls="example2 " data-dt-idx="5 " tabindex="0 ">5</a></li>
+                                        <li class="paginate_button "><a href="# " aria-controls="example2 " data-dt-idx="6 " tabindex="0 ">6</a></li>
+                                        <li class="paginate_button next " id="example2_next "><a href="# " aria-controls="example2 " data-dt-idx="7 " tabindex="0 ">Trang sau</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- /.box -->
                         </div>
-                        <!-- /.box-body -->
-
-                        <div class="box-footer">
-                            <button type="button" class="btn btn-success"><i class="fa fa-plus"></i> Thêm</button>
-                            <button style="margin-left: 40%;" type="button" class="btn bg-olive margin" data-toggle="modal" data-target="#modal-importexcel">
-                                <i class="fa fa-file-excel-o"></i> Thêm từ file excel
-                            </button>
-
-                        </div>
-                        </form>
                     </div>
+
                 </div>
-
+            </section>
+            <!-- /.content -->
         </div>
-        </section>
-        <!-- /.content -->
-    </div>
 
-    <!-- onclick button sua -->
-    <div class="modal fade" id="modal-importexcel">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <!-- onclick button sua -->
+        <div class="modal fade" id="modal-resetpassword">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close ">
                       <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title"><i class="fa fa-file-excel-o"></i> Thêm từ file excel</h4>
-                </div>
-                <div class="modal-body">
-
-                    <div class="form-group">
-                        <label for="InputFile">Chọn file</label>
-                        <input type="file" id="InputFile">
-
-                        <p class="help-block">Chọn file định dạng excel.</p>
+                        <h4 class="modal-title"><i class="fa fa-refresh"></i> Reset mật khẩu</h4>
                     </div>
+                    <div class="modal-body">
 
+                        <div class="form-group">
+                            <label for="MatKhauMoi">Mật khẩu mới</label>
+                            <input type="password" class="form-control" id="MatKhauMoi ">
+                        </div>
+                        <div class="form-group ">
+                            <label for="XNMatKhauMoi">Xác nhận mật khẩu mới</label>
+                            <input type="password" class="form-control" id="XNMatKhauMoi ">
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn bg-navy">Reset mật khẩu</button>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Đóng</button>
-                    <button type="button" class="btn bg-olive margin">Thêm</button>
-                </div>
+                <!-- /.modal-content -->
             </div>
-            <!-- /.modal-content -->
+            <!-- /.modal-dialog -->
         </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->
+        <!-- /.modal -->
+
+        <!-- /.content-wrapper -->
+
+        <!-- Main Footer -->
+        <footer class="main-footer ">
+
+        </footer>
 
 
+        <!-- ./wrapper -->
 
-    <!-- /.content-wrapper -->
+        <!-- REQUIRED JS SCRIPTS -->
 
-    <!-- Main Footer -->
-    <footer class="main-footer">
+        <!-- jQuery 3 -->
+        <script src="bower_components/jquery/dist/jquery.min.js "></script>
+        <!-- Bootstrap 3.3.7 -->
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js "></script>
+        <!-- AdminLTE App -->
+        <script src="dist/js/adminlte.min.js "></script>
 
-    </footer>
-
-
-    <!-- ./wrapper -->
-
-    <!-- REQUIRED JS SCRIPTS -->
-
-    <!-- jQuery 3 -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap 3.3.7 -->
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.min.js"></script>
-
-    <!-- Optionally, you can add Slimscroll and FastClick plugins.
+        <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
 </body>
