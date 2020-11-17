@@ -35,23 +35,20 @@ public class NhanVienDao extends AbstracDao<NhanVienModel> implements INhanVienD
 	@Override
 	public List<NhanVienModel> findAll(Pageable pageable) {
 
-		StringBuilder sql = new StringBuilder("select * from news");
+		StringBuilder sql = new StringBuilder("select * from nhanvien");
 		if (pageable.getSorter() != null ) {
 			sql.append(" order by " + pageable.getSorter().getSortName() + " " + pageable.getSorter().getSorBy() + "");
 		}
 		if (pageable.getOffset() != null && pageable.getLimit() != null) {
 			sql.append(" limit " + pageable.getOffset() + ", " + pageable.getLimit() + "");
-
 		}
-
 		return query(sql.toString(), new NhanVienMaper());
-
 	}
 
 	@Override
 	public int getTotalItem() {
-
-		return 0;
+		String sql = "SELECT COUNT(*) from nhanvien";
+		return count(sql);
 	}
 
 	@Override

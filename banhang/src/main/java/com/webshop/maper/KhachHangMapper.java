@@ -17,10 +17,10 @@ public class KhachHangMapper implements RowMapper<KhachHangModel> {
 			khachHangModel.setEmail(rs.getString("email"));
 			khachHangModel.setStatus(rs.getInt("status"));
 			khachHangModel.setPoint(rs.getInt("point"));
-//			khachHangModel.setModifiedBy(rs.getString("modifiedby"));
-//			khachHangModel.setModifiedDate(rs.getTimestamp("modifieddate"));
-//			khachHangModel.setCreatedBy(rs.getString("createdby"));
-//			khachHangModel.setCreatedDate(rs.getTimestamp("createddate"));
+			khachHangModel.setModifiedBy(rs.getString("modifiedby"));
+			khachHangModel.setModifiedDate(rs.getTimestamp("modifieddate"));
+			khachHangModel.setCreatedBy(rs.getString("createdby"));
+			khachHangModel.setCreatedDate(rs.getTimestamp("createddate"));
 			return khachHangModel;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

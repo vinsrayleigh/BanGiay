@@ -6,9 +6,6 @@ public class CommentModel extends AbstracModel<CommentModel>{
 	private Long khachHang_id;
 	private Integer danhgia;
 	private String content;
-	
-
-
 	public Long getSanPham_id() {
 		return sanPham_id;
 	}
