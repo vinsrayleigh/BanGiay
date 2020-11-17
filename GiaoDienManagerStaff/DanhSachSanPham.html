@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Danh sách nhà cung cấp | Shop CNPM </title>
+    <title>Danh sách sản phẩm | Shop CNPM </title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -29,6 +29,7 @@
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
+
     <link rel="icon" href="dist/img/favico.png" type="image/gif" sizes="16x16">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -40,22 +41,6 @@
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
-    <style>
-        .example-modal .modal {
-            position: relative;
-            top: auto;
-            bottom: auto;
-            right: auto;
-            left: auto;
-            display: block;
-            z-index: 1;
-        }
-        
-        .example-modal .modal {
-            background: transparent !important;
-        }
-    </style>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -63,7 +48,7 @@
 
         <header class="main-header">
             <!-- Logo -->
-            <a href="HomeManager.html" class="logo">
+            <a href="HomeStaff.html" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>L</b>MP</span>
                 <!-- logo for regular state and mobile devices -->
@@ -211,13 +196,13 @@
 
                                     <p>
                                         Nguyễn Văn A
-                                        <small>Quản lý</small>
+                                        <small>Nhân viên</small>
                                     </p>
                                 </li>
 
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="ThongTinCaNhan.html" class="btn btn-default btn-flat">Thông tin cá nhân</a>
+                                        <a href="ThongTinCaNhanStaff.html" class="btn btn-default btn-flat">Thông tin cá nhân</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="#" class="btn btn-default btn-flat">Đăng xuất</a>
@@ -252,72 +237,81 @@
                     <div class="input-group">
                         <input type="text" name="q" class="form-control" placeholder="Tìm kiếm...">
                         <span class="input-group-btn">
-              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-              </button>
-            </span>
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
                     </div>
                 </form>
                 <!-- /.search form -->
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
-                    <li class="header">Chức năng của quản lý</li>
+
+                    <li class="header">Chức năng của nhân viên</li>
+                    <li>
+                        <a href="HomeStaff.html ">
+                            <i class="fa fa-dashboard "></i><span>Trang tổng quan</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="# ">
+                            <i class="fa fa-cart-plus "></i> <span>Bán hàng</span>
+                        </a>
+                    </li>
 
                     <li>
-                        <a href="HomeManager.html">
-                            <i class="fa fa-dashboard"></i><span>Trang tổng quan</span>
+                        <a href="DanhSachDonHang.html">
+                            <i class="fa fa-shopping-cart "></i> <span>Quản lý đơn hàng</span>
                         </a>
                     </li>
 
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-group"></i> <span>Quản lý nhân viên</span>
-                            <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                    <li class="active treeview ">
+                        <a href="# ">
+                            <i class="fa fa-cubes "></i> <span>Quản lý sản phẩm</span>
+                            <span class="pull-right-container "><i class="fa fa-angle-left pull-right "></i></span>
                         </a>
-                        <ul class="treeview-menu">
-                            <li><a href="DanhSachNhanVien.html"><i class="fa fa-list-alt"></i> Danh sách nhân viên</a></li>
-                            <li><a href="ThemNhanVien.html"><i class="fa fa-user-plus"></i> Thêm nhân viên</a></li>
-                            <!-- <li><a href="#"><i class="fa fa-user-plus"></i></a></li> -->
-
-                            <li class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-calculator"></i>
-                                    <span> Quản lý lương nhân viên</span>
-                                    <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li><a href="#"><i class="fa fa-circle-o"></i> Đăng ký lịch làm việc</a></li>
-                                    <li><a href="#"><i class="fa fa-circle-o"></i> Điểm danh</a></li>
-                                    <li><a href="#"><i class="fa fa-circle-o"></i> Thống kê lương</a></li>
-                                </ul>
-                            </li>
+                        <ul class="treeview-menu ">
+                            <li class="active"><a href="DanhSachSanPham.html"><i class="fa fa-list-alt "></i> Danh sách sản phẩm</a></li>
+                            <li><a href="# "><i class="fa fa-plus-circle "></i> Thêm sản phẩm</a></li>
                         </ul>
                     </li>
 
-                    <li class="active treeview">
-                        <a href="#">
-                            <i class="fa fa-truck"></i> <span>Quản lý nhà cung cấp</span>
-                            <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                    <li class="treeview ">
+                        <a href="# ">
+                            <i class="fa fa-male "></i> <span>Quản lý khách hàng</span>
+                            <span class="pull-right-container "><i class="fa fa-angle-left pull-right "></i></span>
                         </a>
-                        <ul class="treeview-menu">
-                            <li class="active"><a href="DanhSachNhaCungCap.html"><i class="fa fa-list-alt"></i> Danh sách nhà cung cấp</a></li>
-                            <li><a href="ThemNhaCungCap.html"><i class="fa fa-plus-circle"></i> Thêm nhà cung cấp</a></li>
+                        <ul class="treeview-menu ">
+                            <li><a href="# "><i class="fa fa-list-alt "></i> Danh sách khách hàng</a></li>
+                            <li><a href="# "><i class="fa fa-plus-circle "></i> Thêm khách hàng</a></li>
                         </ul>
                     </li>
 
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-expeditedssl"></i> <span>Quản lý tài khoản</span>
-                            <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                    <li class="treeview ">
+                        <a href="# ">
+                            <i class="fa fa-gift "></i> <span>Quản lý khuyến mãi</span>
+                            <span class="pull-right-container "><i class="fa fa-angle-left pull-right "></i></span>
                         </a>
-                        <ul class="treeview-menu">
-                            <li><a href="DanhSachTaiKhoanNhanVien.html"><i class="fa fa-list-alt"></i> Tài khoản nhân viên</a></li>
-                            <li><a href="DanhSachTaiKhoanKhachHang.html"><i class="fa fa-list-alt"></i> Tài khoản khách hàng</a></li>
+                        <ul class="treeview-menu ">
+                            <li><a href="# "><i class="fa fa-list-alt "></i> Danh sách khuyến mãi</a></li>
+                            <li><a href="# "><i class="fa fa-plus-circle "></i> Thêm khuyến mãi</a></li>
                         </ul>
                     </li>
 
                     <li>
-                        <a href="DanhSachHoaDon.html">
-                            <i class="fa fa-file-text "></i> <span>Quản lý hóa đơn</span>
+                        <a href="# ">
+                            <i class="fa fa-star "></i> <span>Quản lý đánh giá sản phẩm</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="# ">
+                            <i class="fa fa-shield "></i> <span>Bảo hành</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="# ">
+                            <i class="fa fa-pie-chart "></i> <span>Thống kê</span>
                         </a>
                     </li>
 
@@ -335,7 +329,7 @@
                                     <i class="fa fa-files-o "></i>
                                     <span>Layout Options</span>
                                     <span class="pull-right-container ">
-                              <span class="label label-primary pull-right ">4</span>
+                                <span class="label label-primary pull-right ">4</span>
                                     </span>
                                 </a>
                                 <ul class="treeview-menu ">
@@ -349,8 +343,8 @@
                                 <a href="pages/widgets.html ">
                                     <i class="fa fa-th "></i> <span>Widgets</span>
                                     <span class="pull-right-container ">
-                              <small class="label pull-right bg-green ">new</small>
-                            </span>
+                                <small class="label pull-right bg-green ">new</small>
+                              </span>
                                 </a>
                             </li>
 
@@ -407,19 +401,19 @@
                                 <a href="pages/calendar.html ">
                                     <i class="fa fa-calendar "></i> <span>Calendar</span>
                                     <span class="pull-right-container ">
-                                    <small class="label pull-right bg-red ">3</small>
-                                    <small class="label pull-right bg-blue ">17</small>
-                                  </span>
+                                      <small class="label pull-right bg-red ">3</small>
+                                      <small class="label pull-right bg-blue ">17</small>
+                                    </span>
                                 </a>
                             </li>
                             <li>
                                 <a href="pages/mailbox/mailbox.html ">
                                     <i class="fa fa-envelope "></i> <span>Mailbox</span>
                                     <span class="pull-right-container ">
-                                    <small class="label pull-right bg-yellow ">12</small>
-                                    <small class="label pull-right bg-green ">16</small>
-                                    <small class="label pull-right bg-red ">5</small>
-                                  </span>
+                                      <small class="label pull-right bg-yellow ">12</small>
+                                      <small class="label pull-right bg-green ">16</small>
+                                      <small class="label pull-right bg-red ">5</small>
+                                    </span>
                                 </a>
                             </li>
                             <li class="treeview ">
@@ -448,15 +442,15 @@
                                     <li><a href="# "><i class="fa fa-circle-o "></i> Level One</a></li>
                                     <li class="treeview ">
                                         <a href="# "><i class="fa fa-circle-o "></i> Level One
-                                      <span class="pull-right-container "><i class="fa fa-angle-left pull-right "></i></span>
-                                      </a>
+                                        <span class="pull-right-container "><i class="fa fa-angle-left pull-right "></i></span>
+                                        </a>
                                         <ul class="treeview-menu ">
                                             <li><a href="# "><i class="fa fa-circle-o "></i> Level Two</a></li>
                                             <li class="treeview ">
                                                 <a href="# "><i class="fa fa-circle-o "></i> Level Two
-                                                <span class="pull-right-container ">
-                                                <i class="fa fa-angle-left pull-right "></i></span>
-                                              </a>
+                                                  <span class="pull-right-container ">
+                                                  <i class="fa fa-angle-left pull-right "></i></span>
+                                                </a>
                                                 <ul class="treeview-menu ">
                                                     <li><a href="# "><i class="fa fa-circle-o "></i> Level Three</a></li>
                                                     <li><a href="# "><i class="fa fa-circle-o "></i> Level Three</a></li>
@@ -485,11 +479,11 @@
             <!-- Content Header (Page header) -->
             <section class="content-header ">
                 <h1>
-                    <i class="fa fa-truck "></i> Quản lý nhà cung cấp
+                    <i class="fa fa-cubes"></i> Quản lý sản phẩm
                 </h1>
                 <ol class="breadcrumb ">
-                    <li><a href="# "><i class="fa fa-truck "></i> Quản lý nhà cung cấp</a></li>
-                    <li class="active ">Danh sách nhà cung cấp</li>
+                    <li><a href="# "><i class="fa fa-cubes"></i> Quản lý sản phẩm</a></li>
+                    <li class="active">Danh sách sản phẩm</li>
                 </ol>
             </section>
 
@@ -500,12 +494,10 @@
                 <div class="box ">
                     <div class="box-header ">
                         <h3 class="box-title ">
-                            <i class="fa fa-list-alt "></i> Danh sách nhà cung cấp
+                            <i class="fa fa-list-alt "></i> Danh sách sản phẩm
                         </h3>
                         <p style="margin-top: 1%; "></p>
-                        <a href="ThemNhanVien.html " class="btn btn-block btn-success " style="width: fit-content; ">
-                            <i class="fa fa-user-plus "></i> Thêm nhà cung cấp
-                        </a>
+
                     </div>
                     <div class="box-body ">
                         <div class="input-group margin ">
@@ -516,13 +508,16 @@
 
                             <select class="form-control " style="width: fit-content;margin-left: inherit; ">
                                 <option>-----</option>
-                                <option>Mã nhà cung cấp</option>
-                                <option>Tên nhà cung cấp</option>
-                                <option>Địa chỉ</option>
-                                <option>Email</option>
-                                <option>Số điện thoại</option>
+                                <option>Mã sản phẩm</option>
+                                <option>Tên sản phẩm</option>
+                                <option>Loại sản phẩm</option>
+                                <option>Nhà cung cấp</option>
+                                <option>Đơn giá gốc</option>
+                                <option>Đơn giá hiện tại</option>
+                                <option>Số lượng hiện có</option>
                               </select>
                         </div>
+
                     </div>
 
                     <p style="margin-top: 1%; "></p>
@@ -535,108 +530,148 @@
                                     <table class="table table-hover ">
                                         <tr>
                                             <th>STT</th>
-                                            <th>Mã nhà cung cấp</th>
-                                            <th>Tên nhà cung cấp</th>
-                                            <th>Địa chỉ</th>
-                                            <th>Email</th>
-                                            <th>Số điện thoại</th>
+                                            <th>Mã sản phẩm</th>
+                                            <th>Tên sản phẩm</th>
+                                            <th>Loại sản phẩm</th>
+                                            <th>Nhà cung cấp</th>
+                                            <th>Đơn giá gốc</th>
+                                            <th>Đơn giá hiện tại</th>
+                                            <th>Số lượng hiện có</th>
+                                            <th>Ảnh</th>
                                             <th>Tùy chọn</th>
                                         </tr>
                                         <tr>
                                             <td>1</td>
-                                            <td>1</td>
+                                            <td>SP1</td>
+                                            <td>Adidas Alphabouce 200</td>
+                                            <td>Adidas</td>
                                             <td>Adidas Nguyễn Trãi</td>
-                                            <td>14 Nguyễn Trãi, phường 1, Quận 5, TP HCM</td>
-                                            <td>adidasnguyentrai@adidasstore.com</td>
-                                            <td>0569389495</td>
+                                            <td>1,500,000 ₫</td>
+                                            <td class="text-red">1,350,000 ₫</td>
+                                            <td>15</td>
+                                            <td><img src="dist/img/productexample.png" alt="AnhSP" width="60px" height="60px"></td>
                                             <td>
-                                                <button type="button" class="btn btn-warning " data-toggle="modal" data-target="#modal-sua">
-                                                      <i class="fa fa-edit "></i> Sửa thông tin
-                                                  </button>
-                                                <button type="button " class="btn btn-danger " data-toggle="modal" data-target="#modal-xoa">
-                                                    <i class="fa fa-remove "></i> Xóa
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-xemchitiet">
+                                                    <i class="fa fa-mouse-pointer"></i> Xem chi tiết size
+                                                </button>
+                                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-sua">
+                                                    <i class="fa fa-edit"></i> Sửa
+                                                </button>
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-xoa">
+                                                    <i class="fa fa-remove"></i> Xóa
                                                 </button>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>2</td>
-                                            <td>1</td>
+                                            <td>SP1</td>
+                                            <td>Adidas Alphabouce 200</td>
+                                            <td>Adidas</td>
                                             <td>Adidas Nguyễn Trãi</td>
-                                            <td>14 Nguyễn Trãi, phường 1, Quận 5, TP HCM</td>
-                                            <td>adidasnguyentrai@adidasstore.com</td>
-                                            <td>0569389495</td>
+                                            <td>1,500,000 ₫</td>
+                                            <td class="text-red">1,350,000 ₫</td>
+                                            <td>15</td>
+                                            <td><img src="dist/img/productexample.png" alt="AnhSP" width="60px" height="60px"></td>
                                             <td>
-                                                <button type="button" class="btn btn-warning " data-toggle="modal" data-target="#modal-sua">
-                                                      <i class="fa fa-edit "></i> Sửa thông tin
-                                                  </button>
-                                                <button type="button " class="btn btn-danger " data-toggle="modal" data-target="#modal-xoa">
-                                                    <i class="fa fa-remove "></i> Xóa
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-xemchitiet">
+                                                    <i class="fa fa-mouse-pointer"></i> Xem chi tiết size
+                                                </button>
+                                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-sua">
+                                                    <i class="fa fa-edit"></i> Sửa
+                                                </button>
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-xoa">
+                                                    <i class="fa fa-remove"></i> Xóa
                                                 </button>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
-                                            <td>1</td>
+                                            <td>SP1</td>
+                                            <td>Adidas Alphabouce 200</td>
+                                            <td>Adidas</td>
                                             <td>Adidas Nguyễn Trãi</td>
-                                            <td>14 Nguyễn Trãi, phường 1, Quận 5, TP HCM</td>
-                                            <td>adidasnguyentrai@adidasstore.com</td>
-                                            <td>0569389495</td>
+                                            <td>1,500,000 ₫</td>
+                                            <td class="text-red">1,350,000 ₫</td>
+                                            <td>15</td>
+                                            <td><img src="dist/img/productexample.png" alt="AnhSP" width="60px" height="60px"></td>
                                             <td>
-                                                <button type="button" class="btn btn-warning " data-toggle="modal" data-target="#modal-sua">
-                                                      <i class="fa fa-edit "></i> Sửa thông tin
-                                                  </button>
-                                                <button type="button " class="btn btn-danger " data-toggle="modal" data-target="#modal-xoa">
-                                                    <i class="fa fa-remove "></i> Xóa
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-xemchitiet">
+                                                    <i class="fa fa-mouse-pointer"></i> Xem chi tiết size
+                                                </button>
+                                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-sua">
+                                                    <i class="fa fa-edit"></i> Sửa
+                                                </button>
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-xoa">
+                                                    <i class="fa fa-remove"></i> Xóa
                                                 </button>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>4</td>
-                                            <td>1</td>
+                                            <td>SP1</td>
+                                            <td>Adidas Alphabouce 200</td>
+                                            <td>Adidas</td>
                                             <td>Adidas Nguyễn Trãi</td>
-                                            <td>14 Nguyễn Trãi, phường 1, Quận 5, TP HCM</td>
-                                            <td>adidasnguyentrai@adidasstore.com</td>
-                                            <td>0569389495</td>
+                                            <td>1,500,000 ₫</td>
+                                            <td class="text-red">1,350,000 ₫</td>
+                                            <td>15</td>
+                                            <td><img src="dist/img/productexample.png" alt="AnhSP" width="60px" height="60px"></td>
                                             <td>
-                                                <button type="button" class="btn btn-warning " data-toggle="modal" data-target="#modal-sua">
-                                                      <i class="fa fa-edit "></i> Sửa thông tin
-                                                  </button>
-                                                <button type="button " class="btn btn-danger " data-toggle="modal" data-target="#modal-xoa">
-                                                    <i class="fa fa-remove "></i> Xóa
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-xemchitiet">
+                                                    <i class="fa fa-mouse-pointer"></i> Xem chi tiết size
+                                                </button>
+                                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-sua">
+                                                    <i class="fa fa-edit"></i> Sửa
+                                                </button>
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-xoa">
+                                                    <i class="fa fa-remove"></i> Xóa
                                                 </button>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>5</td>
-                                            <td>1</td>
+                                            <td>SP1</td>
+                                            <td>Adidas Alphabouce 200</td>
+                                            <td>Adidas</td>
                                             <td>Adidas Nguyễn Trãi</td>
-                                            <td>14 Nguyễn Trãi, phường 1, Quận 5, TP HCM</td>
-                                            <td>adidasnguyentrai@adidasstore.com</td>
-                                            <td>0569389495</td>
+                                            <td>1,500,000 ₫</td>
+                                            <td class="text-red">1,350,000 ₫</td>
+                                            <td>15</td>
+                                            <td><img src="dist/img/productexample.png" alt="AnhSP" width="60px" height="60px"></td>
                                             <td>
-                                                <button type="button" class="btn btn-warning " data-toggle="modal" data-target="#modal-sua">
-                                                      <i class="fa fa-edit "></i> Sửa thông tin
-                                                  </button>
-                                                <button type="button " class="btn btn-danger " data-toggle="modal" data-target="#modal-xoa">
-                                                    <i class="fa fa-remove "></i> Xóa
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-xemchitiet">
+                                                    <i class="fa fa-mouse-pointer"></i> Xem chi tiết size
+                                                </button>
+                                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-sua">
+                                                    <i class="fa fa-edit"></i> Sửa
+                                                </button>
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-xoa">
+                                                    <i class="fa fa-remove"></i> Xóa
                                                 </button>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>6</td>
-                                            <td>1</td>
+                                            <td>SP1</td>
+                                            <td>Adidas Alphabouce 200</td>
+                                            <td>Adidas</td>
                                             <td>Adidas Nguyễn Trãi</td>
-                                            <td>14 Nguyễn Trãi, phường 1, Quận 5, TP HCM</td>
-                                            <td>adidasnguyentrai@adidasstore.com</td>
-                                            <td>0569389495</td>
+                                            <td>1,500,000 ₫</td>
+                                            <td class="text-red">1,350,000 ₫</td>
+                                            <td>15</td>
+                                            <td><img src="dist/img/productexample.png" alt="AnhSP" width="60px" height="60px"></td>
                                             <td>
-                                                <button type="button" class="btn btn-warning " data-toggle="modal" data-target="#modal-sua">
-                                                      <i class="fa fa-edit "></i> Sửa thông tin
-                                                  </button>
-                                                <button type="button " class="btn btn-danger " data-toggle="modal" data-target="#modal-xoa">
-                                                    <i class="fa fa-remove "></i> Xóa
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-xemchitiet">
+                                                    <i class="fa fa-mouse-pointer"></i> Xem chi tiết size
+                                                </button>
+                                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-sua">
+                                                    <i class="fa fa-edit"></i> Sửa
+                                                </button>
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-xoa">
+                                                    <i class="fa fa-remove"></i> Xóa
                                                 </button>
                                             </td>
+
                                         </tr>
                                     </table>
                                 </div>
@@ -664,41 +699,136 @@
         </div>
 
         <!-- onclick button sua -->
-        <div class="modal fade" id="modal-sua">
+        <div class="modal fade" id="modal-xemchitiet">
             <div class="modal-dialog">
-                <div class="modal-content ">
+                <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true ">&times;</span></button>
-                        <h4 class="modal-title "><i class="fa fa-edit "></i> Sửa thông tin nhà cung cấp</h4>
+                      <span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"><i class="fa fa-mouse-pointer"></i> Chi tiết size</h4>
                     </div>
-                    <div class="modal-body ">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="input1" class="col-sm-4 control-label ">Mã sản phẩm: </label><span>SP1</span>
+                            <p></p>
+                            <label for="input2" class="col-sm-4 control-label ">Tên sản phẩm: </label><span>Adidas Alphabouce 200</span>
+                            <p></p>
+                            <label for="input3" class="col-sm-4 control-label ">Loại sản phẩm: </label><span>Adidas</span>
+                            <p></p>
+                            <label for="input4" class="col-sm-4 control-label ">Nhà cung cấp: </label><span>Adidas Nguyễn Trãi</span>
+                            <p></p>
+                            <label for="input5" class="col-sm-4 control-label ">Số lượng hiện có: </label><span>15</span>
+                            <p></p>
 
-                        <div class="form-group ">
-                            <label for="MaNCC ">Mã nhà cung cấp</label>
-                            <input type="text " class="form-control " id="MaNCC " value="1 " disabled>
+                            <div class="col-xs-12 ">
+                                <div class="box ">
+                                    <div class="box-body table-responsive no-padding ">
+                                        <table class="table table-hover ">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Size</th>
+                                                    <th>Số lượng hiện có</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>38</td>
+                                                    <td>2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>39</td>
+                                                    <td>3</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>40</td>
+                                                    <td>5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>41</td>
+                                                    <td>1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>42</td>
+                                                    <td>2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>43</td>
+                                                    <td>2</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                                <!-- /.box -->
+                            </div>
                         </div>
-                        <div class="form-group ">
-                            <label for="TenNCC ">Tên nhà cung cấp</label>
-                            <input type="text " class="form-control " id="TenNCC " value="Adidas Nguyễn Trãi ">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <div class="modal fade" id="modal-sua">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"><i class="fa fa-edit"></i> Sửa thông tin sản phẩm</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label for="MaSP">Mã sản phẩm</label>
+                            <input type="text" class="form-control" id="MaSP" value="SP1" disabled>
                         </div>
-                        <div class="form-group ">
-                            <label for="DiaChi ">Địa chỉ</label>
-                            <input type="text " class="form-control " id="DiaChi " value="14 Nguyễn Trãi, phường 1, Quận 5, TP HCM ">
+                        <div class="form-group">
+                            <label for="TenSP">Tên sản phẩm</label>
+                            <input type="text" class="form-control " id="TenSP" value="Adidas Alphabouce 200">
                         </div>
-                        <div class="form-group ">
-                            <label for="inputEmail ">Email</label>
-                            <input type="text " class="form-control " id="inputEmail " value="adidasnguyentrai@adidasstore.com ">
+                        <div class="form-group">
+                            <label>Loại sản phẩm</label>
+                            <select class="form-control">
+                              <option>Adidas</option>
+                              <option>Nike</option>
+                              <option>New Balance</option>
+                              <option>Converse</option>
+                              <option>Vans</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Nhà cung cấp</label>
+                            <select class="form-control">
+                              <option>Adidas Nguyễn Trãi</option>
+                              <option>Nike Nguyễn Văn Cừ</option>
+                              <option>Bitis Store</option>
+                            </select>
                         </div>
 
-                        <div class="form-group ">
-                            <label for="inputSDT ">Số điện thoại</label>
-                            <input type="text " class="form-control " id="inputSDT " value="0569389495 ">
+                        <div class="form-group">
+                            <label for="mainprice">Đơn giá gốc</label>
+                            <input type="text" class="form-control " id="mainprice" value="1,500,000 ₫" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="currentprice">Đơn giá hiện tại</label>
+                            <input type="text" class="form-control " id="currentprice" value="1,350,000 ₫">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">Ảnh</label>
+                            <p></p>
+                            <img src="dist/img/productexample.png" alt="AnhSP" width="150px" height="150px">
+                            <input type="file" id="exampleInputFile">
+
+                            <p class="help-block">Chọn ảnh định dạng: jpeg, jpg, png</p>
                         </div>
 
                     </div>
                     <div class="modal-footer ">
-                        <button type="button " class="btn btn-default pull-left" data-dismiss="modal">Đóng</button>
+                        <button type="button " class="btn btn-default pull-left " data-dismiss="modal">Đóng</button>
                         <button type="button " class="btn btn-warning ">Sửa thông tin</button>
                     </div>
                 </div>
@@ -709,18 +839,18 @@
         <!-- /.modal -->
 
         <div class="modal fade" id="modal-xoa">
-            <div class="modal-dialog ">
-                <div class="modal-content " style="margin: 25%; ">
-                    <div class="modal-header ">
-                        <button type="button " class="close " data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true ">&times;</span></button>
-                        <h4 class="modal-title "><i class="fa fa-remove "></i> Xóa nhà cung cấp</h4>
+            <div class="modal-dialog">
+                <div class="modal-content" style="margin: 25%; ">
+                    <div class="modal-header">
+                        <button type="button" class="close " data-dismiss="modal " aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title "><i class="fa fa-remove"></i> Xóa sản phẩm</h4>
                     </div>
                     <div class="modal-body ">
                         <h4>Bạn có chắc muốn xóa không?</h4>
                     </div>
                     <div class="modal-footer ">
-                        <button type="button " class="btn btn-default pull-left" data-dismiss="modal">Đóng</button>
+                        <button type="button " class="btn btn-default pull-left " data-dismiss="modal">Đóng</button>
                         <button type="button " class="btn btn-danger">Xóa</button>
                     </div>
                 </div>
@@ -741,20 +871,123 @@
         <!-- ./wrapper -->
 
         <!-- REQUIRED JS SCRIPTS -->
-
         <!-- jQuery 3 -->
         <script src="bower_components/jquery/dist/jquery.min.js "></script>
         <!-- Bootstrap 3.3.7 -->
         <script src="bower_components/bootstrap/dist/js/bootstrap.min.js "></script>
+        <!-- Select2 -->
+        <script src="bower_components/select2/dist/js/select2.full.min.js "></script>
+        <!-- InputMask -->
+        <script src="plugins/input-mask/jquery.inputmask.js "></script>
+        <script src="plugins/input-mask/jquery.inputmask.date.extensions.js "></script>
+        <script src="plugins/input-mask/jquery.inputmask.extensions.js "></script>
+        <!-- date-range-picker -->
+        <script src="bower_components/moment/min/moment.min.js "></script>
+        <script src="bower_components/bootstrap-daterangepicker/daterangepicker.js "></script>
+        <!-- bootstrap datepicker -->
+        <script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js "></script>
+        <!-- bootstrap color picker -->
+        <script src="bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js "></script>
+        <!-- bootstrap time picker -->
+        <script src="plugins/timepicker/bootstrap-timepicker.min.js "></script>
+        <!-- SlimScroll -->
+        <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js "></script>
+        <!-- iCheck 1.0.1 -->
+        <script src="plugins/iCheck/icheck.min.js "></script>
+        <!-- FastClick -->
+        <script src="bower_components/fastclick/lib/fastclick.js "></script>
         <!-- AdminLTE App -->
         <script src="dist/js/adminlte.min.js "></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="dist/js/demo.js "></script>
+        <!-- Bootstrap slider -->
+        <script src="plugins/seiyria-bootstrap-slider/bootstrap-slider.min.js"></script>
+        <script>
+            $(function() {
+                /* BOOTSTRAP SLIDER */
+                $('.slider').slider()
+            })
+        </script>
 
         <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
-</body>
+        <script>
+            $(function() {
+                //Initialize Select2 Elements
+                $('.select2').select2()
 
-</html>
+                //Datemask dd/mm/yyyy
+                $('#datemask').inputmask('dd/mm/yyyy', {
+                        'placeholder': 'dd/mm/yyyy'
+                    })
+                    //Datemask2 mm/dd/yyyy
+                $('#datemask2').inputmask('mm/dd/yyyy', {
+                        'placeholder': 'mm/dd/yyyy'
+                    })
+                    //Money Euro
+                $('[data-mask]').inputmask()
+
+                //Date range picker
+                $('#reservation').daterangepicker()
+                    //Date range picker with time picker
+                $('#reservationtime').daterangepicker({
+                        timePicker: true,
+                        timePickerIncrement: 30,
+                        locale: {
+                            format: 'MM/DD/YYYY hh:mm A'
+                        }
+                    })
+                    //Date range as a button
+                $('#daterange-btn').daterangepicker({
+                        ranges: {
+                            'Today': [moment(), moment()],
+                            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                            'This Month': [moment().startOf('month'), moment().endOf('month')],
+                            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                        },
+                        startDate: moment().subtract(29, 'days'),
+                        endDate: moment()
+                    },
+                    function(start, end) {
+                        $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+                    }
+                )
+
+                //Date picker
+                $('#datepicker').datepicker({
+                    autoclose: true
+                })
+
+                //iCheck for checkbox and radio inputs
+                $('input[type="checkbox "].minimal, input[type="radio "].minimal').iCheck({
+                        checkboxClass: 'icheckbox_minimal-blue',
+                        radioClass: 'iradio_minimal-blue'
+                    })
+                    //Red color scheme for iCheck
+                $('input[type="checkbox "].minimal-red, input[type="radio "].minimal-red').iCheck({
+                        checkboxClass: 'icheckbox_minimal-red',
+                        radioClass: 'iradio_minimal-red'
+                    })
+                    //Flat red color scheme for iCheck
+                $('input[type="checkbox "].flat-red, input[type="radio "].flat-red').iCheck({
+                    checkboxClass: 'icheckbox_flat-green',
+                    radioClass: 'iradio_flat-green'
+                })
+
+                //Colorpicker
+                $('.my-colorpicker1').colorpicker()
+                    //color picker with addon
+                $('.my-colorpicker2').colorpicker()
+
+                //Timepicker
+                $('.timepicker').timepicker({
+                    showInputs: false
+                })
+            })
+        </script>
 </body>
 
 </html>
