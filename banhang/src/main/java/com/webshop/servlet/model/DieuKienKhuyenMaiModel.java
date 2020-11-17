@@ -1,18 +1,18 @@
 package com.webshop.servlet.model;
 
 public class DieuKienKhuyenMaiModel extends AbstracModel<DieuKienKhuyenMaiModel>{
-	private Long khuyeMai_id;
+	private Long khuyenMai_id;
 	private String loaiKhuyenMai_code;
 	private Long sanPham_id;
 	private Integer soLuong;
 	private Integer giaSanPham;
 
-	public Long getKhuyeMai_id() {
-		return khuyeMai_id;
+	public Long getKhuyenMai_id() {
+		return khuyenMai_id;
 	}
 
-	public void setKhuyeMai_id(Long khuyeMai_id) {
-		this.khuyeMai_id = khuyeMai_id;
+	public void setKhuyenMai_id(Long khuyeMai_id) {
+		this.khuyenMai_id = khuyeMai_id;
 	}
 
 	public String getLoaiKhuyenMai_code() {
