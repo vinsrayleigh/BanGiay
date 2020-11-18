@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Danh sach bai viet</title>
+<title>Danh sach sanpham</title>
 </head>
 <body>
 	<div class="main-content">
@@ -46,21 +46,21 @@
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach var="item" items="${spmodel.listResult}">
+										<c:forEach var="item" items="${model.listResult}">
 											<tr>
 												<td>${item.id}</td>
 												<td>${item.code}</td>
 												<td>${item.name}</td>
 												<td>${item.size}</td>
 												<td>${item.image}</td>
-												<td>${item.mainprice}</td>
-												<td>${item.currentprice}</td>
+												<td>${item.mainPrice}</td>
+												<td>${item.currentPrice}</td>
 												<td>${item.amount}</td>
-												<td>${item.loaisanpham_is}</td>
+												<td>${item.loaiSanPham_id}</td>
 												<td>${item.modifiedBy}</td>
 												<td>${item.modifiedDate}</td>
-												<td>${item.createBy}</td>
-												<td>${item.createDate}</td>
+												<td>${item.createdBy}</td>
+												<td>${item.createdDate}</td>
 												
 												
 												
@@ -85,15 +85,10 @@
 		</form>
 	</div>
 	<!-- /.main-content -->
-	<script type="text/javascript">
-		var currentPage = $
-		{
-			spmodel.page
-		};
-		var totalPages = $
-		{
-			spmodel.totalPage
-		};
+	<script >
+	
+		var currentPage=${model.page};
+		var totalPages=${model.totalPage};
 		var limit = 5;
 		$(function() {
 			window.pagObj = $('#pagination').twbsPagination({
@@ -102,7 +97,7 @@
 				startPage : currentPage,
 				onPageClick : function(event, page) {
 					if (currentPage != page) {
-						console.info(page + ' (from options)');
+				
 						$('#pageItem').val(limit);
 						$('#page').val(page);
 						$('#sortName').val('id');
