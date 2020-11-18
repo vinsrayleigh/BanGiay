@@ -11,7 +11,7 @@ public class PageRequest implements Pageable {
 	public PageRequest(Integer page, Integer pageItem , Sorter sort) {
 		this.page = page;
 		this.pageItem = pageItem;
-		this.sorter=sorter;
+		this.sorter=sort;
 	}
 	@Override
 	public Integer getPage() {

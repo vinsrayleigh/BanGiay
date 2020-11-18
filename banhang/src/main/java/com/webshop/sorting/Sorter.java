@@ -2,17 +2,17 @@ package com.webshop.sorting;
 
 public class Sorter {
 	private String sortName;
-	private String sorBy;
-	public Sorter(String sortName, String sorBy) {
+	private String sortBy;
+	public Sorter(String sortName, String sortBy) {
 		
 		this.setSortName(sortName);
-		this.setSorBy(sorBy);
+		this.setSorBy(sortBy);
 	}
 	public String getSorBy() {
-		return sorBy;
+		return sortBy;
 	}
 	public void setSorBy(String sorBy) {
-		this.sorBy = sorBy;
+		this.sortBy = sorBy;
 	}
 	public String getSortName() {
 		return sortName;

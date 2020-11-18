@@ -5,10 +5,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.jboss.weld.context.ejb.Ejb;
-
 import com.webshop.dao.INhanVienDao;
-import com.webshop.daoIMPL.NhanVienDao;
 import com.webshop.paging.Pageable;
 import com.webshop.serviece.INhanVienService;
 import com.webshop.servlet.model.NhanVienModel;

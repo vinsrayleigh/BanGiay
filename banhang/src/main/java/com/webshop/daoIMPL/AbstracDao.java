@@ -17,7 +17,7 @@ public class AbstracDao<T> implements GenericDAO<T> {
 
 	public Connection getConnection() {
 		String userName = "root";
-		String password = "123456";
+		String password = "12345";
 		String url = "jdbc:mysql://localhost:3306/banhang";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -96,13 +96,9 @@ public class AbstracDao<T> implements GenericDAO<T> {
 			connection.setAutoCommit(false);
 			statement = connection.prepareStatement(sql);
 			setparameter(statement, parameters);
-			int row = statement.executeUpdate();
+			statement.executeUpdate();
 			connection.commit();
-			if(row>0) {
-				return true;
-			}else {
-				return false;
-			}
+			
 		} catch (SQLException e) {
 			if (connection != null) {
 				try {
@@ -140,7 +136,7 @@ public class AbstracDao<T> implements GenericDAO<T> {
 			connection.setAutoCommit(false);
 			statement = connection.prepareStatement(sql, statement.RETURN_GENERATED_KEYS);
 			setparameter(statement, parameters);
-			int row = statement.executeUpdate();
+			statement.executeUpdate();
 			resultset = statement.getGeneratedKeys();
 			if (resultset.next()) {
 				id = resultset.getLong(1);

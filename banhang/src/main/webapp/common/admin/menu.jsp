@@ -43,6 +43,18 @@
 				</a> <b class="arrow"></b></li>
 			</ul></li>
 	</ul>
+		<ul class="nav nav-list">
+		<li><a href="#" class="dropdown-toggle"> <i
+				class="menu-icon fa fa-list"></i> <span class="menu-text"></span>
+				Quản lý Sản Phẩm <b class="arrow fa fa-angle-down"></b>
+		</a> <b class="arrow"></b>
+			<ul class="submenu">
+				<li><a
+					href='<c:url value="/admin-sanpham?page=1&pageItem=5&sortName=id&sortBy=asc"/>'>
+						<i class="menu-icon fa fa-caret-right"></i> DS Sản Phẩm
+				</a> <b class="arrow"></b></li>
+			</ul></li>
+	</ul>
 	<div class="sidebar-toggle sidebar-collapse">
 		<i class="ace-icon fa fa-angle-double-left ace-save-state"
 			data-icon1="ace-icon fa fa-angle-double-left"

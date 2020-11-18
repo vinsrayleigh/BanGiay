@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="main-content">
-		<form action="<c:url value='/admin-new'/>" id="formSubmit"
+		<form action="<c:url value='/admin-sanpham'/>" id="formSubmit"
 			method="get">
 			<div class="main-content-inner">
 				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
@@ -27,31 +27,43 @@
 									<thead>
 										<tr>
 											<th>id</th>
-											<th>categoryid</th>
-											<th>titlet</th>
-											<th>thumbnail</th>
-											<th>shortdescription</th>
-											<th>content</th>
-											<th>createdate</th>
-											<th>modifieddate</th>
-											<th>createby</th>
+											<th>code</th>
+											<th>name</th>
+											<th>size</th>
+											<th>image</th>
+											<th>mainprice</th>
+											<th>curentprice</th>
+											<th>amount</th>
+											<th>Loaisanpham_id</th>
 											<th>modifiedby</th>
+											<th>modifieddate</th>
+											<th>createdby</th>
+											<th>createddate</th>
+
+
+
 
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach var="item" items="${model.listResult}">
+										<c:forEach var="item" items="${spmodel.listResult}">
 											<tr>
 												<td>${item.id}</td>
-												<td>${item.categoryId}</td>
-												<td>${item.title}</td>
-												<td>${item.thumbnail}</td>
-												<td>${item.content}</td>
-												<td>${item.shortdescription}</td>
-												<td>${item.createDate}</td>
+												<td>${item.code}</td>
+												<td>${item.name}</td>
+												<td>${item.size}</td>
+												<td>${item.image}</td>
+												<td>${item.mainprice}</td>
+												<td>${item.currentprice}</td>
+												<td>${item.amount}</td>
+												<td>${item.loaisanpham_is}</td>
+												<td>${item.modifiedBy}</td>
 												<td>${item.modifiedDate}</td>
 												<td>${item.createBy}</td>
-												<td>${item.modifiedBy}</td>
+												<td>${item.createDate}</td>
+												
+												
+												
 
 											</tr>
 										</c:forEach>
@@ -69,30 +81,37 @@
 					</div>
 				</div>
 			</div>
+
+		</form>
 	</div>
-	</form>
 	<!-- /.main-content -->
 	<script type="text/javascript">
-	var currentPage =${model.page};
-	var totalPages =${model.totalPage};
-	var limit=5;
+		var currentPage = $
+		{
+			spmodel.page
+		};
+		var totalPages = $
+		{
+			spmodel.totalPage
+		};
+		var limit = 5;
 		$(function() {
 			window.pagObj = $('#pagination').twbsPagination({
 				totalPages : totalPages,
-				visiblePages :5,
-				startPage:currentPage,
+				visiblePages : 5,
+				startPage : currentPage,
 				onPageClick : function(event, page) {
-					if(currentPage!=page){
-						//console.info(page + ' (from options)');
+					if (currentPage != page) {
+						console.info(page + ' (from options)');
 						$('#pageItem').val(limit);
 						$('#page').val(page);
-						$('#sortName').val('categoryid');
+						$('#sortName').val('id');
 						$('#sortBy').val('asc');
 						$('#formSubmit').submit();
 					}
 				}
 			})//.on('page', function(event, page) {
-				//console.info(page + ' (from event listening)');
+			//console.info(page + ' (from event listening)');
 			//});
 		});
 	</script>
