@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Danh sách đơn hàng | Shop CNPM </title>
+    <title>Danh sách khuyến mãi | Shop CNPM </title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+
 
     <link rel="icon" href="dist/img/favico.png" type="image/gif" sizes="16x16">
 
@@ -257,7 +258,7 @@
                         </a>
                     </li>
 
-                    <li class="active">
+                    <li>
                         <a href="DanhSachDonHang.html">
                             <i class="fa fa-shopping-cart "></i> <span>Quản lý đơn hàng</span>
                         </a>
@@ -285,14 +286,14 @@
                         </ul>
                     </li>
 
-                    <li class="treeview ">
+                    <li class="active treeview ">
                         <a href="# ">
                             <i class="fa fa-gift "></i> <span>Quản lý khuyến mãi</span>
                             <span class="pull-right-container "><i class="fa fa-angle-left pull-right "></i></span>
                         </a>
                         <ul class="treeview-menu ">
-                            <li><a href="DanhSachKhuyenMai.html"><i class="fa fa-list-alt "></i> Danh sách khuyến mãi</a></li>
-                            <li><a href="# "><i class="fa fa-plus-circle "></i> Thêm khuyến mãi</a></li>
+                            <li class="active"><a href="DanhSachKhuyenMai.html"><i class="fa fa-list-alt "></i> Danh sách khuyến mãi</a></li>
+                            <li><a href="ThemKhuyenMai.html"><i class="fa fa-plus-circle "></i> Thêm khuyến mãi</a></li>
                         </ul>
                     </li>
 
@@ -478,11 +479,11 @@
             <!-- Content Header (Page header) -->
             <section class="content-header ">
                 <h1>
-                    <i class="fa fa-shopping-cart "></i> Quản lý đơn hàng
+                    <i class="fa fa-male"></i> Quản lý khách hàng
                 </h1>
                 <ol class="breadcrumb ">
-                    <li><a href="# "><i class="fa fa-shopping-cart "></i> Quản lý đơn hàng</a></li>
-                    <!-- <li class="active ">Tài khoản khách hàng</li> -->
+                    <li><a href="# "><i class="fa fa-male"></i> Quản lý khách hàng</a></li>
+                    <li class="active">Danh sách khách hàng</li>
                 </ol>
             </section>
 
@@ -493,7 +494,7 @@
                 <div class="box ">
                     <div class="box-header ">
                         <h3 class="box-title ">
-                            <i class="fa fa-list-alt "></i> Danh sách đơn hàng
+                            <i class="fa fa-list-alt "></i> Danh sách khách hàng
                         </h3>
                         <p style="margin-top: 1%; "></p>
 
@@ -507,26 +508,13 @@
 
                             <select class="form-control " style="width: fit-content;margin-left: inherit; ">
                                 <option>-----</option>
-                                <option>Mã đơn hàng</option>
                                 <option>Mã khách hàng</option>
-                                <option>Mã nhân viên</option>
-                                <option>Mã khuyến mãi</option>
-                                <option>Trạng thái</option>
+                                <option>Tên khách hàng</option>
+                                <option>Số điện thoại</option>
+                                <option>Email</option>
+                                
                               </select>
                         </div>
-
-                        <!-- Date range -->
-                        <div class="form-group margin " style="width: 56%; ">
-                            <label>Lọc từ ngày - đến ngày:</label>
-                            <div class="input-group ">
-                                <div class="input-group-addon ">
-                                    <i class="fa fa-calendar "></i>
-                                </div>
-                                <input type="text " class="form-control pull-right " id="reservation">
-                            </div>
-                            <!-- /.input group -->
-                        </div>
-                        <!-- /.form group -->
 
                     </div>
 
@@ -540,203 +528,100 @@
                                     <table class="table table-hover ">
                                         <tr>
                                             <th>STT</th>
-                                            <th>Mã đơn hàng</th>
-                                            <th>Mã khách hàng</th>
-                                            <th>Mã nhân viên</th>
-                                            <th>Mã khuyến mãi (nếu có)</th>
-                                            <th>Tổng tiền</th>
-                                            <th>Ngày lập</th>
-                                            <th>Trạng thái</th>
-                                            <th>Xem chi tiết</th>
+                                            <th>Mã khuyến mãi</th>
+                                            <th>Nội dung khuyến mãi</th>
+                                            <th>Ngày bắt đầu</th>
+                                            <th>Ngày kết thúc</th>
                                             <th>Tùy chọn</th>
                                         </tr>
                                         <tr>
                                             <td>1</td>
                                             <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>khuyenmai50</td>
-                                            <td>1,500,000 ₫</td>
-                                            <td>09/11/2020</td>
-                                            <td><span class="label label-success ">Đã giao</span></td>
+                                            <td>Đây là nội dung khuyến mãi</td>
+                                            <td>10/11/2020</td>
+                                            <td>20/11/2020</td>
                                             <td>
-                                                <button type="button " class="btn btn-primary" data-toggle="modal" data-target="#modal-xemchitiet">
-                                                    <i class="fa fa-mouse-pointer "></i> Xem chi tiết
+                                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-sua">
+                                                    <i class="fa fa-edit"></i> Sửa thông tin
                                                 </button>
-                                            </td>
-                                            <td>
-                                                <button type="button " class="btn bg-navy">
-                                                    <i class="fa fa-retweet "></i> Đổi trả
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-xoa">
+                                                    <i class="fa fa-remove"></i> Xóa
                                                 </button>
-                                                <!-- <button type="button " class="btn btn-success">
-                                                <i class="fa fa-check-circle "></i> Đánh dấu đã giao
-                                                </button>
-                                                <button type="button " class="btn btn-danger">
-                                                <i class="fa fa-remove "></i> Hủy đơn
-                                                </button> -->
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>2</td>
                                             <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>khuyenmai50</td>
-                                            <!-- <td>15,000 ₫</td> -->
-                                            <td>1,500,000 ₫</td>
-                                            <td>09/11/2020</td>
-                                            <td><span class="label label-warning ">Đang giao</span></td>
+                                            <td>Đây là nội dung khuyến mãi</td>
+                                            <td>10/11/2020</td>
+                                            <td>20/11/2020</td>
                                             <td>
-                                                <button type="button " class="btn btn-primary" data-toggle="modal" data-target="#modal-xemchitiet">
-                                                    <i class="fa fa-mouse-pointer "></i> Xem chi tiết
+                                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-sua">
+                                                    <i class="fa fa-edit"></i> Sửa thông tin
                                                 </button>
-                                            </td>
-                                            <td>
-                                                <!-- <button type="button " class="btn btn-primary" data-toggle="modal" data-target="#modal-xemchitiet">
-                                                    <i class="fa fa-mouse-pointer "></i> Xem chi tiết
-                                                </button> -->
-                                                <button type="button " class="btn btn-success ">
-                                                <i class="fa fa-check-circle "></i> Đánh dấu đã giao
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-xoa">
+                                                    <i class="fa fa-remove"></i> Xóa
                                                 </button>
-                                                <!-- <button type="button " class="btn btn-danger ">
-                                                <i class="fa fa-remove "></i> Hủy đơn
-                                                </button> -->
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
                                             <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>khuyenmai50</td>
-                                            <!-- <td>15,000 ₫</td> -->
-                                            <td>1,500,000 ₫</td>
-                                            <td>09/11/2020</td>
-                                            <td><span class="label label-success ">Đã giao</span></td>
+                                            <td>Đây là nội dung khuyến mãi</td>
+                                            <td>10/11/2020</td>
+                                            <td>20/11/2020</td>
                                             <td>
-                                                <button type="button " class="btn btn-primary" data-toggle="modal" data-target="#modal-xemchitiet">
-                                                    <i class="fa fa-mouse-pointer "></i> Xem chi tiết
+                                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-sua">
+                                                    <i class="fa fa-edit"></i> Sửa thông tin
                                                 </button>
-                                            </td>
-                                            <td>
-                                                <button type="button " class="btn bg-navy " data-toggle="modal " data-target="#modal-doitra ">
-                                                    <i class="fa fa-retweet "></i> Đổi trả
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-xoa">
+                                                    <i class="fa fa-remove"></i> Xóa
                                                 </button>
-                                                <!-- <button type="button " class="btn btn-success ">
-                                                <i class="fa fa-check-circle "></i> Đánh dấu đã giao
-                                                </button>
-                                                <button type="button " class="btn btn-danger ">
-                                                <i class="fa fa-remove "></i> Hủy đơn
-                                                </button> -->
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>4</td>
                                             <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>khuyenmai50</td>
-                                            <!-- <td>15,000 ₫</td> -->
-                                            <td>1,500,000 ₫</td>
-                                            <td>09/11/2020</td>
-                                            <td><span class="label label-primary">Đang xử lý</span></td>
+                                            <td>Đây là nội dung khuyến mãi</td>
+                                            <td>10/11/2020</td>
+                                            <td>20/11/2020</td>
                                             <td>
-                                                <button type="button " class="btn btn-primary" data-toggle="modal" data-target="#modal-xemchitiet">
-                                                    <i class="fa fa-mouse-pointer "></i> Xem chi tiết
+                                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-sua">
+                                                    <i class="fa fa-edit"></i> Sửa thông tin
                                                 </button>
-                                            </td>
-                                            <td>
-                                                <!-- <button type="button " class="btn bg-navy " data-toggle="modal " data-target="#modal-doitra ">
-                                                    <i class="fa fa-retweet "></i> Đổi trả
-                                                </button>
-                                                <button type="button " class="btn btn-success ">
-                                                <i class="fa fa-check-circle "></i> Đánh dấu đã giao
-                                                </button> -->
-                                                <button type="button " class="btn btn-danger ">
-                                                <i class="fa fa-remove "></i> Hủy đơn
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-xoa">
+                                                    <i class="fa fa-remove"></i> Xóa
                                                 </button>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>5</td>
                                             <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>khuyenmai50</td>
-                                            <!-- <td>15,000 ₫</td> -->
-                                            <td>1,500,000 ₫</td>
-                                            <td>09/11/2020</td>
-                                            <td><span class="label label-success ">Đã giao</span></td>
+                                            <td>Đây là nội dung khuyến mãi</td>
+                                            <td>10/11/2020</td>
+                                            <td>20/11/2020</td>
                                             <td>
-                                                <button type="button " class="btn btn-primary" data-toggle="modal" data-target="#modal-xemchitiet">
-                                                    <i class="fa fa-mouse-pointer "></i> Xem chi tiết
+                                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-sua">
+                                                    <i class="fa fa-edit"></i> Sửa thông tin
                                                 </button>
-                                            </td>
-                                            <td>
-                                                <button type="button " class="btn bg-navy " data-toggle="modal " data-target="#modal-doitra ">
-                                                    <i class="fa fa-retweet "></i> Đổi trả
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-xoa">
+                                                    <i class="fa fa-remove"></i> Xóa
                                                 </button>
-                                                <!-- <button type="button " class="btn btn-success ">
-                                                <i class="fa fa-check-circle "></i> Đánh dấu đã giao
-                                                </button>
-                                                <button type="button " class="btn btn-danger ">
-                                                <i class="fa fa-remove "></i> Hủy đơn
-                                                </button> -->
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>6</td>
                                             <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>khuyenmai50</td>
-                                            <!-- <td>15,000 ₫</td> -->
-                                            <td>1,500,000 ₫</td>
-                                            <td>09/11/2020</td>
-                                            <td><span class="label label-warning ">Đang giao</span></td>
+                                            <td>Đây là nội dung khuyến mãi</td>
+                                            <td>10/11/2020</td>
+                                            <td>20/11/2020</td>
                                             <td>
-                                                <button type="button " class="btn btn-primary" data-toggle="modal" data-target="#modal-xemchitiet">
-                                                    <i class="fa fa-mouse-pointer "></i> Xem chi tiết
+                                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-sua">
+                                                    <i class="fa fa-edit"></i> Sửa thông tin
                                                 </button>
-                                            </td>
-                                            <td>
-                                                <!-- <button type="button " class="btn bg-navy " data-toggle="modal " data-target="#modal-doitra ">
-                                                    <i class="fa fa-retweet "></i> Đổi trả
-                                                </button> -->
-                                                <button type="button " class="btn btn-success ">
-                                                <i class="fa fa-check-circle "></i> Đánh dấu đã giao
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-xoa">
+                                                    <i class="fa fa-remove"></i> Xóa
                                                 </button>
-                                                <!-- <button type="button " class="btn btn-danger ">
-                                                <i class="fa fa-remove "></i> Hủy đơn
-                                                </button> -->
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>khuyenmai50</td>
-                                            <!-- <td>15,000 ₫</td> -->
-                                            <td>1,500,000 ₫</td>
-                                            <td>09/11/2020</td>
-                                            <td><span class="label label-danger">Đã hủy</span></td>
-                                            <td>
-                                                <button type="button " class="btn btn-primary" data-toggle="modal" data-target="#modal-xemchitiet">
-                                                    <i class="fa fa-mouse-pointer "></i> Xem chi tiết
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <!-- <button type="button " class="btn bg-navy " data-toggle="modal " data-target="#modal-doitra ">
-                                                    <i class="fa fa-retweet "></i> Đổi trả
-                                                </button> -->
-                                                <!-- <button type="button " class="btn btn-success ">
-                                                <i class="fa fa-check-circle "></i> Đánh dấu đã giao
-                                                </button> -->
-                                                <!-- <button type="button " class="btn btn-danger ">
-                                                <i class="fa fa-remove "></i> Hủy đơn
-                                                </button> -->
                                             </td>
 
                                         </tr>
@@ -765,104 +650,60 @@
             <!-- /.content -->
         </div>
 
-        <!-- onclick button sua -->
-        <div class="modal fade" id="modal-xemchitiet">
-            <div class="modal-dialog ">
-                <div class="modal-content ">
-                    <div class="modal-header ">
-                        <button type="button " class="close " data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true ">&times;</span></button>
-                        <h4 class="modal-title"><i class="fa fa-mouse-pointer"></i> Chi tiết đơn hàng</h4>
+        <div class="modal fade" id="modal-sua">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title"><i class="fa fa-edit"></i> Sửa thông tin khuyến mãi</h4>
                     </div>
-                    <div class="modal-body ">
+                    <div class="modal-body">
 
-                        <div class="form-group ">
-                            <label for="input1" class="col-sm-4 control-label">Mã đơn hàng: </label><span>1</span>
-                            <p></p>
-                            <label for="input2" class="col-sm-4 control-label">Mã khách hàng: </label><span>1</span>
-                            <p></p>
-                            <label for="input3" class="col-sm-4 control-label">Mã nhân viên: </label><span>1</span>
-                            <p></p>
-                            <label for="input4" class="col-sm-4 control-label">Mã khuyến mãi (nếu có): </label><span>khuyenmai50</span>
-                            <p></p>
-                            <label for="input5" class="col-sm-4 control-label">Địa chỉ giao hàng: </label><span>273 An Dương Vương, Phường 4, Quận 5, TP HCM</span>
-                            <p></p>
-                            <label for="input6" class="col-sm-4 control-label ">Trạng thái: </label><span class="label label-success">Đã giao</span>
-                            <p></p>
-
-                            <div class="col-xs-12 ">
-                                <div class="box ">
-                                    <div class="box-body table-responsive no-padding ">
-                                        <table class="table table-hover ">
-                                            <tbody>
-                                                <tr>
-                                                    <th>STT</th>
-                                                    <th>Mã sản phẩm</th>
-                                                    <th>Tên sản phẩm</th>
-                                                    <th>Size</th>
-                                                    <th>Đơn giá</th>
-                                                    <th>Số lượng</th>
-                                                    <th>Thành tiền</th>
-                                                    <th>Ảnh</th>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>SP1</td>
-                                                    <td>Adidas Alphabouce 200</td>
-                                                    <td>41</td>
-                                                    <td>1,000,000 ₫</td>
-                                                    <td>1</td>
-                                                    <td>1,000,000 ₫</td>
-                                                    <td><img src="dist/img/productexample.png " alt="AnhSP " width="50px " height="50px "></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>SP2</td>
-                                                    <td>Adidas Alphabouce 210</td>
-                                                    <td>39</td>
-                                                    <td>485,000 ₫</td>
-                                                    <td>1</td>
-                                                    <td>485,000 ₫</td>
-                                                    <td><img src="dist/img/productexample.png " alt="AnhSP " width="50px " height="50px "></td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td colspan="2 " style="font-weight: bold; ">Tạm tính: </td>
-                                                    <td colspan="2 ">1,485,000 ₫</td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td colspan="2 " style="font-weight: bold; ">Phí vận chuyển: </td>
-                                                    <td colspan="2 ">15,000 ₫</td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td colspan="2 " style="font-weight: bold; ">Tổng tiền: </td>
-                                                    <td colspan="2 ">1,500,000 ₫</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!-- /.box-body -->
-                                </div>
-                                <!-- /.box -->
-                            </div>
-
+                        <div class="form-group">
+                            <label for="MaKH">Mã khuyến mãi</label>
+                            <input type="text" class="form-control" id="MaKH" value="1" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="TenKH">Nội dung khuyến mãi</label>
+                            <input type="text" class="form-control" id="TenKH" value="Đây là nội dung khuyến mãi">
+                        </div>
+                        <div class="form-group">
+                            <label for="SDTKH">Ngày bắt đầu</label>
+                            <input type="text" class="form-control" id="SDTKH" value="10/11/2020">
+                        </div>
+                        <div class="form-group">
+                            <label for="EmailKH">Ngày kết thúc</label>
+                            <input type="email" class="form-control" id="EmailKH" value="20/11/2020">
                         </div>
 
 
                     </div>
-                    <div class="modal-footer">
-                        <button type="button " class="btn btn-default pull-left" data-dismiss="modal">Đóng</button>
+                    <div class="modal-footer ">
+                        <button type="button " class="btn btn-default pull-left " data-dismiss="modal">Đóng</button>
+                        <button type="button " class="btn btn-warning ">Sửa thông tin</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <div class="modal fade" id="modal-xoa">
+            <div class="modal-dialog">
+                <div class="modal-content" style="margin: 25%; ">
+                    <div class="modal-header">
+                        <button type="button" class="close " data-dismiss="modal " aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title "><i class="fa fa-remove"></i> Xóa mã khuyến mãi</h4>
+                    </div>
+                    <div class="modal-body ">
+                        <h4>Bạn có chắc muốn xóa không?</h4>
+                    </div>
+                    <div class="modal-footer ">
+                        <button type="button " class="btn btn-default pull-left " data-dismiss="modal">Đóng</button>
+                        <button type="button " class="btn btn-danger">Xóa</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->
@@ -911,6 +752,14 @@
         <script src="dist/js/adminlte.min.js "></script>
         <!-- AdminLTE for demo purposes -->
         <script src="dist/js/demo.js "></script>
+        <!-- Bootstrap slider -->
+        <script src="plugins/seiyria-bootstrap-slider/bootstrap-slider.min.js"></script>
+        <script>
+            $(function() {
+                /* BOOTSTRAP SLIDER */
+                $('.slider').slider()
+            })
+        </script>
 
         <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
@@ -992,5 +841,7 @@
             })
         </script>
 </body>
+
+</html>
 
 </html>
