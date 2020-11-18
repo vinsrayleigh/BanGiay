@@ -4,8 +4,20 @@ public class NhaCungCapModel extends AbstracModel<NhaCungCapModel>{
 
 	private String name;
 	private String address;
-	
-
+	private String email;
+	private String phone;
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 	public String getName() {
 		return name;
 	}
@@ -18,6 +30,4 @@ public class NhaCungCapModel extends AbstracModel<NhaCungCapModel>{
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
-	
 }
