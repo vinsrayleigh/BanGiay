@@ -13,4 +13,5 @@ public interface IRoleDAO extends GenericDAO<RoLeModel>{
 	RoLeModel findById(Long id);
 	RoLeModel findByCode(String code);
 	boolean isAvailable(String code);
+	List<RoLeModel> search(Pageable pageable,String txtSearch);
 }

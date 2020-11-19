@@ -1,6 +1,7 @@
 package com.webshop.controller.web;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -16,12 +17,16 @@ import com.webshop.dao.IKhachHangDAO;
 import com.webshop.dao.INhanVienDao;
 import com.webshop.daoIMPL.NhaCungCapDAO;
 import com.webshop.daoIMPL.NhanVienDao;
+import com.webshop.paging.Pageable;
 import com.webshop.serviece.IKhachHangService;
 import com.webshop.serviece.INhaCungCapService;
 import com.webshop.serviece.INhanVienService;
+import com.webshop.serviece.IRoleService;
 import com.webshop.servlet.model.KhachHangModel;
 import com.webshop.servlet.model.NhaCungCapModel;
 import com.webshop.servlet.model.NhanVienModel;
+import com.webshop.servlet.model.RoLeModel;
+import com.webshop.sorting.Sorter;
 
 @WebServlet(urlPatterns = { "/trang-chu" })
 public class HomeController extends HttpServlet {
@@ -31,11 +36,15 @@ public class HomeController extends HttpServlet {
 	IKhachHangService khachHangService;
 	@Inject
 	INhaCungCapService nhaCungCapService;
+	@Inject
+	IRoleService roleS;
 	private static final long serialVersionUID = 8989284322873178974L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println(khachHangService.getTotalItems());
+		List<RoLeModel> list = roleS.findAll(null);
+		
+		System.out.println(list.isEmpty()?"null":list.size());
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/Home.jsp");
 		rd.forward(request, response);
 	}
