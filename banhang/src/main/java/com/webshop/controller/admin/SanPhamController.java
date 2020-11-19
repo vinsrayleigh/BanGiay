@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.webshop.constant.SystemConstant;
 import com.webshop.paging.PageRequest;
 import com.webshop.paging.Pageable;
 import com.webshop.serviece.ISanPhamService;
@@ -24,12 +25,13 @@ public class SanPhamController extends HttpServlet {
 	@Inject ISanPhamService sanphamservice;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		SanPhamModel spmodel= FormUtils.toModel(SanPhamModel.class, request);
-		Pageable pageable = new PageRequest(spmodel.getPage(),spmodel.getPageItem(),
-		new Sorter(spmodel.getSortName(),spmodel.getSortBy()));
-		spmodel.setTotalItem(sanphamservice.getTotalItem());
-		spmodel.setTotalPage((int) Math.ceil((double) spmodel.getTotalItem()/spmodel.getPageItem()));
-		spmodel.setListResult(sanphamservice.findAll(pageable));
+		SanPhamModel model= FormUtils.toModel(SanPhamModel.class, request);
+		Pageable pageable = new PageRequest(model.getPage(),model.getPageItem(),
+		new Sorter(model.getSortName(),model.getSortBy()));
+		model.setTotalItem(sanphamservice.getTotalItem());
+		model.setTotalPage((int) Math.ceil((double) model.getTotalItem()/model.getPageItem()));
+		model.setListResult(sanphamservice.findAll(pageable));
+		request.setAttribute(SystemConstant.MODEL, model);
 		RequestDispatcher rd = request.getRequestDispatcher("/views/admin/sanpham/list.jsp");
 		rd.forward(request, response);
 	}

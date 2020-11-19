@@ -30,7 +30,7 @@
 <script
 	src="<c:url value='/template/paging/jquery.twbsPagination.js' />"></script>
 
-<script src="<c:url value='/ckeditor/ckeditor.js' />"></script>
+
 </head>
 <body class="no-skin">
 	<!-- header -->
