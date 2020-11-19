@@ -5,7 +5,7 @@ import java.io.IOException;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-//convert json to string online
+//convert json to string 
 public class HttpUtils {
 	private String value;
 	public HttpUtils(String value) {this.value=value;};

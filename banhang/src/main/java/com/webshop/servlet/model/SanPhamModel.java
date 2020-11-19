@@ -74,6 +74,10 @@ public class SanPhamModel extends AbstracModel <SanPhamModel>{
 		return LoaiSanPham_id;
 	}
 
+	public void setLoaiSanPham_id(Long loaiSanPham_id) {
+		LoaiSanPham_id = loaiSanPham_id;
+	}
+	
 
 
 }

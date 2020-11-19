@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.beanutils.BeanUtils;
 
 public class FormUtils {
+	@SuppressWarnings("unchecked")
 	public static <T> T toModel(Class<T> tClass,HttpServletRequest request) {
 		T object = null;
 		try {
