@@ -7,13 +7,14 @@ import javax.inject.Inject;
 
 import com.webshop.dao.IKhuyenMaiDAO;
 import com.webshop.maper.KhuyenMaiMapper;
+import com.webshop.maper.RowMapper;
 import com.webshop.servlet.model.ChiTietKhuyenMaiModel;
 import com.webshop.servlet.model.DieuKienKhuyenMaiModel;
 import com.webshop.servlet.model.KhuyenMaiModel;
 
 public class KhuyenMaiDAO extends AbstracDao<KhuyenMaiModel> implements IKhuyenMaiDAO {
 	@Inject
-	KhuyenMaiMapper mapper;
+	RowMapper<KhuyenMaiModel> mapper;
 	@Inject
 	ChiTietKhuyenMaiDAO ctkmDAO;
 	@Inject

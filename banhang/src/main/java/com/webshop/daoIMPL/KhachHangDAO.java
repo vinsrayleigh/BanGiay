@@ -3,6 +3,8 @@ package com.webshop.daoIMPL;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.print.attribute.standard.QueuedJobCount;
+
 import com.webshop.dao.IKhachHangDAO;
 import com.webshop.maper.KhachHangMapper;
 import com.webshop.maper.NhanVienMaper;
@@ -54,11 +56,15 @@ public class KhachHangDAO extends AbstracDao<KhachHangModel> implements IKhachHa
 
 		return query(sql.toString(), new KhachHangMapper());
 	}
+	public List<KhachHangModel> findAll(){
+		String sql = "SELECT * from khachhang";
+		return query(sql, new KhachHangMapper());
+	}
 
 	@Override
 	public int getTotalItem() {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql ="SELECT COUNT(*) from khachhang";
+		return count(sql);
 	}
 
 	@Override

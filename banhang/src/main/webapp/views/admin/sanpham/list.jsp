@@ -8,7 +8,7 @@
 <title>Danh sach sanpham</title>
 </head>
 <body>
-	<div class="main-content">
+	<div class="main-content content-wrapper">
 		<form action="<c:url value='/admin-sanpham'/>" id="formSubmit"
 			method="get">
 			<div class="main-content-inner">
