@@ -31,7 +31,7 @@
 						<div class="slider-active owl-carousel">
 							<!-- Begin Single Slide Area -->
 							<div
-								class="single-slide align-center-left  animation-style-01 bg-1">
+								class="single-slide align-center-left animation-style-01 bg-1">
 								<div class="slider-progress"></div>
 								<div class="slider-content">
 									<h5>
