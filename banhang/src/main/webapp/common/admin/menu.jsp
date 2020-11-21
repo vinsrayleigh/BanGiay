@@ -88,7 +88,11 @@
                             <i class="fa fa-file-text "></i> <span>Quản lý hóa đơn</span>
                         </a>
                     </li>
-
+					<li>
+                        <a href="<c:url value='/admin-khuyenmai?page=1&pageItem=5&sortName=id&sortBy=asc'/> ">
+                            <i class="fa fa-file-text "></i> <span>Quản lý khuyến mãi</span>
+                        </a>
+                    </li>
                     <li class="header ">Khác</li>
                     <!-- Thành phần giao diện -->
                     <li class="treeview ">
