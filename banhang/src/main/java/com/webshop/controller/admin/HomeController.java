@@ -20,9 +20,18 @@ public class HomeController extends HttpServlet {
 	@Inject ISanPhamService spservice;
 protected void doGet(HttpServletRequest request,HttpServletResponse	 response)throws ServletException,IOException {
 		
-	
+	String action=request.getParameter("action");
+	if(action !=null && action.equals("login")) 
+	{
+			RequestDispatcher rd=request.getRequestDispatcher("/views/login.jsp");
+	}
+	else if(action!=null && action.equals("logout")) {
+		
+	}else {
 		RequestDispatcher	rd=request.getRequestDispatcher("/views/admin/Home.jsp");
 		rd.forward(request, response);
+	}
+
 	}
 	
 	protected void doPost(HttpServletRequest request,HttpServletResponse	 response)throws ServletException,IOException {

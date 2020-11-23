@@ -18,7 +18,7 @@ import com.webshop.servlet.model.NhaCungCapModel;
 import com.webshop.servlet.model.SanPhamModel;
 
 
-@WebServlet(urlPatterns = { "/trang-chu" })
+@WebServlet(urlPatterns = { "/trang-chu","/dang-nhap" })
 public class HomeController extends HttpServlet {
 	@Inject
 	INhanVienService nhanVienService;
@@ -34,11 +34,22 @@ public class HomeController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		SanPhamModel sp=new SanPhamModel();
-		NhaCungCapModel ncc = new NhaCungCapModel();
-
-		RequestDispatcher rd = request.getRequestDispatcher("/views/web/Home.jsp");
-		rd.forward(request, response);
-	}
+		String action=request.getParameter("action");
+		if(action !=null && action.equals("login")) 
+		{
+				RequestDispatcher rd = request.getRequestDispatcher("/views/login.jsp");
+				rd.forward(request, response);
+		}
+		else if(action!=null && action.equals("logout")) {
+			
+		}else {
+			RequestDispatcher rd = request.getRequestDispatcher("/views/web/Home.jsp");
+			rd.forward(request, response);
+		}
+		
+		}
+	
+	
+	
 
 }

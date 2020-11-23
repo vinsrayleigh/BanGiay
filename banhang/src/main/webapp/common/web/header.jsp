@@ -27,7 +27,7 @@
                                         <!-- Setting Area End Here -->
                                         <!-- Begin Setting Area -->
                                         <li>
-                                            <div class="btnChung"><span><a href="login-register.html">Đăng nhập</a></span></div>
+                                            <div class="btnChung"><span><a href='<c:url value="/dang-nhap?action=login"/>'>Đăng nhập</a></span></div>
                                         </li>
                                         <!-- Setting Area End Here -->
                                         <!-- Begin Setting Area -->
