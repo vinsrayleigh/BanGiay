@@ -17,7 +17,7 @@ public class AbstracDao<T> implements GenericDAO<T> {
 
 	public Connection getConnection() {
 		String userName = "root";
-		String password = "12345";
+		String password = "123456";
 		String url = "jdbc:mysql://localhost:3306/banhang";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -53,7 +53,7 @@ public class AbstracDao<T> implements GenericDAO<T> {
 	}
 
 	@Override
-	public <T> List<T> query(String sql, RowMapper<T> rowmapper, Object... parameters) {
+	public <T> List<T> query(String sql, RowMapper<T> mapper, Object... parameters) {
 
 		List<T> results = new ArrayList<>();
 		Connection connection = null;
@@ -65,7 +65,7 @@ public class AbstracDao<T> implements GenericDAO<T> {
 			setparameter(statement, parameters);
 			resultset = statement.executeQuery();
 			while (resultset.next()) {
-				results.add(rowmapper.mapRow(resultset));
+				results.add(mapper.mapRow(resultset));
 			}
 			return results;
 		} catch (SQLException e) {

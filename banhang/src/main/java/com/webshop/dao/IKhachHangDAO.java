@@ -14,8 +14,7 @@ public interface IKhachHangDAO extends GenericDAO<KhachHangModel>{
 	void delete(long id);
 
 	List<KhachHangModel> findAll(Pageable pageable);
-
+	List<KhachHangModel> findAll();
 	int getTotalItem();
-
 	KhachHangModel findOne(Long id);
 }

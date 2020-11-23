@@ -12,7 +12,7 @@ public class KhuyenMaiMapper implements RowMapper<KhuyenMaiModel>{
 		KhuyenMaiModel km = new KhuyenMaiModel();
 		try {
 			km.setId(rs.getLong("id"));
-			km.setContent(rs.getString("conntent"));
+			km.setContent(rs.getString("content"));
 			km.setNgayBatDau(rs.getTimestamp("ngaybatdau"));
 			km.setNgayKetThuc(rs.getTimestamp("ngayketthuc"));
 			km.setModifiedBy(rs.getString("modifiedby"));
