@@ -5,6 +5,7 @@
 <html>
 <head>
 <title><dec:title default="Trang chủ" /></title>
+
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="<c:url value='/template/admin/bower_components/bootstrap/dist/css/bootstrap.min.css' />" />
     <!-- Font Awesome -->
@@ -41,10 +42,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script
 	src="<c:url value='/template/paging/jquery.twbsPagination.js' />"></script>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini no-skin">

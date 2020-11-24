@@ -11,11 +11,9 @@ public class FormUtils {
 	public static <T> T toModel(Class<T> tClass,HttpServletRequest request) {
 		T object = null;
 		try {
-			
 			object= tClass.newInstance();
 			BeanUtils.populate(object, request.getParameterMap());																																																											
-		} catch (InstantiationException |IllegalAccessException|InvocationTargetException e) {
-			
+		} catch (InstantiationException |IllegalAccessException|InvocationTargetException e) {			
 			e.printStackTrace();
 		} 
 		return object;
