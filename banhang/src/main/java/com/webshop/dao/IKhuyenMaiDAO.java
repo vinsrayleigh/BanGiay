@@ -10,6 +10,7 @@ public interface IKhuyenMaiDAO extends GenericDAO<KhuyenMaiModel>{
 	List<KhuyenMaiModel> findAll(Pageable pageable);
 	KhuyenMaiModel findOne(Long id);
 	List<KhuyenMaiModel> findAll();
+	boolean upd(KhuyenMaiModel km);
 	int getTotalItem();
 	List<KhuyenMaiModel> Search(String txtSearch,String type);
 }

@@ -9,6 +9,7 @@ public interface IKhuyenMaiService {
 	List<KhuyenMaiModel> findAll(Pageable pageable);
 	void save(KhuyenMaiModel km);
 	void delete(Long id);
+	boolean upd(KhuyenMaiModel km);
 	KhuyenMaiModel findById(Long id);
 	int getTotalItem();
 	List<KhuyenMaiModel> findAll();

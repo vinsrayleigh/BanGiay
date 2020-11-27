@@ -12,6 +12,8 @@
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
 <script src="../jquery.twbsPagination.js" type="text/javascript"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
 	<!-- Content Wrapper. Contains page content -->
@@ -101,13 +103,12 @@
 										</tr>
 									</c:forEach>
 								</table>
-								<nav aria-label="Page navigation">
-									<ul class="pagination" id="pagination"></ul>
-									<input type="hidden" value="" id="page" name="page" /> <input
-										type="hidden" value="" id="pageItem" name="pageItem" /> <input
-										type="hidden" value="" id="sortName" name="sortName" /> <input
-										type="hidden" value="" id="sortBy" name="sortBy" />
-								</nav>
+
+								<ul class="pagination" id="pagination"></ul>
+								<input type="hidden" value="" id="page" name="page" /> <input
+									type="hidden" value="" id="pageItem" name="pageItem" /> <input
+									type="hidden" value="" id="sortName" name="sortName" /> <input
+									type="hidden" value="" id="sortBy" name="sortBy" />
 
 							</div>
 							<!-- /.box-body -->
@@ -122,27 +123,46 @@
 	</div>
 	<script>
 		var currentId;
+		var KhuyenMai;
+		var url= "http://localhost:8080/banhang/admin-search-khuyenmai";
 		$('#listData tr td button').click(function(){
 			currentId = $(this).val();
-			var id = '{"id":'+currentId+'}';
-			var url = "http://localhost:8080/banhang/admin-api-khuyenmai";
-			console.log(id);
-			sync function postData(url = '', data = {}) {
-  // Default options are marked with *
-  const response = await fetch(url, {
-    method: 'GET', // *GET, POST, PUT, DELETE, etc.
-    headers: {
-      'Content-Type': 'application/json'
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: JSON.stringify(data) // body data type must match "Content-Type" header
-  });
-  return response.json(); // parses JSON response into native JavaScript objects
-}
-	postData('http://localhost:8080/banhang/admin-api-khuyenmai', { id: 1 })
-  .then(data => {
-    console.log(data); // JSON data parsed by `data.json()` call
-  });
+			console.log(currentId);
+			var id = {id:parseInt(currentId)};
+			$.ajax({
+				url : url,
+				type : 'GET',
+				data : id,
+				dataType :'JSON'
+			}).done(function(data){
+				console.log(data);
+				khuyenmai=data;
+				document.getElementById("idKM").value = data.id;
+				document.getElementById("TenKM").value = data.content;
+				var d = new Date(data.ngayBatDau);
+				document.getElementById("BD").value =  d.toLocaleDateString();
+				d = new Date(data.ngayKetThuc);
+				document.getElementById("KT").value = d.toLocaleDateString();
+			}).fail(function(error){
+				console.log(error);
+			}).always(function(){
+				console.log("Hii");
+			});
+		});
+		$('modal-suaconf button').click(function(){
+			khuyenmai.content = document.getElementById("TenKM").value;
+			$.ajax({
+				url : url,
+				type : 'PUT',
+				data : khuyenmai,
+				dataType :'JSON'
+			}).done(function(data){
+				console.log(data);
+			}).fail(function(error){
+				console.log(error);
+			}).always(function(){
+				console.log("Hii");
+			});
 		});
 	</script>
 	<div class="modal fade" id="modal-sua">
@@ -170,11 +190,11 @@
 					</div>
 					<div class="form-group">
 						<label for="SDTKH">Ngày bắt đầu</label> <input type="text"
-							class="form-control" id="SDTKH" value="10/11/2020">
+							class="form-control" id="BD" value="10/11/2020">
 					</div>
 					<div class="form-group">
 						<label for="EmailKH">Ngày kết thúc</label> <input type="email"
-							class="form-control" id="EmailKH" value="20/11/2020">
+							class="form-control" id="KT" value="20/11/2020">
 					</div>
 
 
@@ -182,7 +202,8 @@
 				<div class="modal-footer ">
 					<button type="button " class="btn btn-default pull-left "
 						data-dismiss="modal">Đóng</button>
-					<button type="button " class="btn btn-warning ">Sửa thông
+					<button type="button " class="btn btn-warning " data-toggle="modal"
+													data-target="#modal-suaconf" >Sửa thông
 						tin</button>
 				</div>
 			</div>
@@ -217,18 +238,35 @@
 		</div>
 		<!-- /.modal-dialog -->
 	</div>
+	<div class="modal fade" id="modal-suaconf">
+		<div class="modal-dialog">
+			<div class="modal-content" style="margin: 25%;">
+				<div class="modal-header">
+					<button type="button" class="close " data-dismiss="modal "
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title ">
+						<i class="fa fa-remove"></i> Sửa mã khuyến mãi
+					</h4>
+				</div>
+				<div class="modal-body ">
+					<h4>Bạn có chắc muốn Sửa không?</h4>
+				</div>
+				<div class="modal-footer ">
+					<button type="button " class="btn btn-default pull-left "
+						data-dismiss="modal">Đóng</button>
+					<button type="button " class="btn btn-danger">Sửa</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
 	<!-- /.modal -->
 
 	<!-- /.content-wrapper -->
 	<script>
-		var currentPage = $
-		{
-			model.page
-		};
-		var totalPages = $
-		{
-			model.totalPage
-		};
 		var limit = 5;
 		$(function() {
 			window.pagObj = $('#pagination').twbsPagination({

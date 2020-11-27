@@ -3,6 +3,8 @@ package com.webshop.servlet.model;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 public class KhuyenMaiModel extends AbstracModel<KhuyenMaiModel> {
 
 	private String content;
@@ -10,7 +12,7 @@ public class KhuyenMaiModel extends AbstracModel<KhuyenMaiModel> {
 	private Timestamp ngayKetThuc;
 	private List<ChiTietKhuyenMaiModel> ctkm;
 	private List<DieuKienKhuyenMaiModel> dkkm;
-
+	
 	public List<ChiTietKhuyenMaiModel> getCtkm() {
 		return ctkm;
 	}
@@ -50,5 +52,20 @@ public class KhuyenMaiModel extends AbstracModel<KhuyenMaiModel> {
 	public void setNgayKetThuc(Timestamp ngayKetThuc) {
 		this.ngayKetThuc = ngayKetThuc;
 	}
-
+	public KhuyenMaiModel findById(Long id) {
+		for(KhuyenMaiModel t : getListResult()) {
+			if(t.getId()==id) return t;
+		}
+		return null;
+	}
+	public void setPara(HttpServletRequest req) {
+		this.setId(Long.parseLong(req.getParameter("id")));
+		this.setContent(req.getParameter("content"));
+		setNgayBatDau(new Timestamp(Long.parseLong(req.getParameter("ngayBatDau"))));
+		setNgayKetThuc(new Timestamp(Long.parseLong(req.getParameter("ngayKetThuc"))));
+		this.setModifiedDate(new Timestamp(Long.parseLong(req.getParameter("modifiedDate"))));
+		this.setCreatedDate(new Timestamp(Long.parseLong(req.getParameter("createdDate"))));
+		this.setModifiedBy(req.getParameter("modifiedBy"));
+		this.setCreatedBy(req.getParameter("createdBy"));
+	};
 }

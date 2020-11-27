@@ -48,7 +48,6 @@
 	src="<c:url value='/template/paging/jquery.twbsPagination.js' />"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
-
 </head>
 <body class="hold-transition skin-blue sidebar-mini no-skin">
 	<!-- header -->

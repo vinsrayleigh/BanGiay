@@ -23,6 +23,7 @@ public class KhuyenMaiAPI extends HttpServlet{
 		ObjectMapper mapper = new ObjectMapper();
 		req.setCharacterEncoding("UTF-8");
 		resp.setContentType("application/json");
+		System.out.println(req.getReader().toString());
 		KhuyenMaiModel khachHangModel = HttpUtils.of(req.getReader()).toModel(KhuyenMaiModel.class);
 		khachHangModel = khuyenMaiService.findById(khachHangModel.getId());
 		System.out.println(khachHangModel.getId());

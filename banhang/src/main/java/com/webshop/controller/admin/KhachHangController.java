@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.webshop.constant.SystemConstant;
 import com.webshop.dao.IKhachHangDAO;
 import com.webshop.daoIMPL.KhachHangDAO;
 import com.webshop.paging.PageRequest;
@@ -34,7 +35,7 @@ public class KhachHangController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		KhachHangModel items = new KhachHangModel();
 		items.setListResult(khachHangDAO.findAll());
-		req.setAttribute("items", items);
+		req.setAttribute(SystemConstant.MODEL, items);
 //		items.setPageItem(pageable.getPage());
 //		items.setTotalItem(khachHangService.getTotalItems());
 //		items.setTotalPage((int) Math.ceil((double) items.getTotalItem() / items.getPageItem()));

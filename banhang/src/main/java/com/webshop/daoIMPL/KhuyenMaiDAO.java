@@ -80,8 +80,15 @@ public class KhuyenMaiDAO extends AbstracDao<KhuyenMaiModel> implements IKhuyenM
 
 	@Override
 	public List<KhuyenMaiModel> Search(String txtSearch, String type) {
-		String sql ="SELECT * from khuyenmai where ? like ?";
-		return query(sql, mapper, type,"%"+txtSearch+"%");
+		String sql ="SELECT * from khuyenmai where content like ?";
+		txtSearch = "%" +txtSearch +"%";
+		return query(sql, mapper,txtSearch);
+	}
+
+	@Override
+	public boolean upd(KhuyenMaiModel km) {
+		String sql = "UPDATE khuyenmai set content = ?, ngaybatdau = ?, ngayketthuc = ?, modifieddate = ?,modifiedBy = ? where id = ?";
+		return update(sql, km.getContent(),km.getNgayBatDau(),km.getNgayKetThuc(),new Timestamp(System.currentTimeMillis()),"",km.getId());
 	}
 
 }

@@ -41,13 +41,12 @@ public class KhuyenMaiService implements IKhuyenMaiService{
 	}
 	@Override
 	public List<KhuyenMaiModel> Search(String type, String txtSearch) {
-		if(type.equals("all")) {
-			return khuyenMaiDAO.findAll();
-		}
-		if(type.equals("content")) {
 			return khuyenMaiDAO.Search(txtSearch, type);
-		}
-		return null;
+	}
+	@Override
+	public boolean upd(KhuyenMaiModel km) {
+		
+		return khuyenMaiDAO.upd(km);
 	}
 
 }
