@@ -17,7 +17,7 @@ public class AbstracDao<T> implements GenericDAO<T> {
 
 	public Connection getConnection() {
 		String userName = "root";
-		String password = "123456";
+		String password = "12345";
 		String url = "jdbc:mysql://localhost:3306/banhang";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");

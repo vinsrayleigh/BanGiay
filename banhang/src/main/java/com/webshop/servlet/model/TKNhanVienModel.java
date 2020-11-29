@@ -6,9 +6,8 @@ public class TKNhanVienModel extends AbstracModel<TKNhanVienModel>{
 	private String password;
 	private Long nhanVien_id;
 	private String role_Code;
-
-
-
+	private Integer trangthai;
+	private RoLeModel role;
 
 	public String getUserName() {
 		return userName;
@@ -40,6 +39,22 @@ public class TKNhanVienModel extends AbstracModel<TKNhanVienModel>{
 
 	public void setRole_Code(String role_Code) {
 		this.role_Code = role_Code;
+	}
+
+	public Integer getTrangthai() {
+		return trangthai;
+	}
+
+	public void setTrangthai(Integer trangthai) {
+		this.trangthai = trangthai;
+	}
+
+	public RoLeModel getRole() {
+		return role;
+	}
+
+	public void setRole(RoLeModel role) {
+		this.role = role;
 	}
 
 

@@ -105,9 +105,7 @@
 						$('#formSubmit').submit();
 					}
 				}
-			})//.on('page', function(event, page) {
-			//console.info(page + ' (from event listening)');
-			//});
+			})
 		});
 	</script>
 </body>

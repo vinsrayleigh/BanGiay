@@ -107,6 +107,7 @@
         <script src="<c:url value='/template/admin/dist/js/demo.js' /> "></script>
         <!-- Bootstrap slider -->
         <script src="<c:url value='/template/admin/plugins/seiyria-bootstrap-slider/bootstrap-slider.min.js' />"></script>
+         <script src="<c:url value='/template/paging/jquery.twbsPagination.js' />"></script>
         <script>
             $(function() {
                 /* BOOTSTRAP SLIDER */
