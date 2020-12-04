@@ -18,7 +18,7 @@ public class AbstracModel<T> {
 	private Integer totalItem;
 	private String sortName;
 	private String sortBy;
-
+	private String type;
 	public Timestamp getCreatedDate() {
 		return createdDate;
 	}
@@ -121,6 +121,14 @@ public class AbstracModel<T> {
 
 	public void setTotalItem(Integer totalItem) {
 		this.totalItem = totalItem;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 }

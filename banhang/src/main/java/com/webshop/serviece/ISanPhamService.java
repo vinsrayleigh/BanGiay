@@ -12,4 +12,5 @@ SanPhamModel save(SanPhamModel sanpham);
 	void delete(Long[] ids);
 	List<SanPhamModel> findAll(Pageable pageable);
 	int getTotalItem();
+	SanPhamModel findOne(Long id);
 }

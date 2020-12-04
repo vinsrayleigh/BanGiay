@@ -26,13 +26,26 @@ public class SanPhamController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		SanPhamModel model= FormUtils.toModel(SanPhamModel.class, request);
-		Pageable pageable = new PageRequest(model.getPage(),model.getPageItem(),
-		new Sorter(model.getSortName(),model.getSortBy()));
-		model.setTotalItem(sanphamservice.getTotalItem());
-		model.setTotalPage((int) Math.ceil((double) model.getTotalItem()/model.getPageItem()));
-		model.setListResult(sanphamservice.findAll(pageable));
-		request.setAttribute(SystemConstant.MODEL, model);
-		RequestDispatcher rd = request.getRequestDispatcher("/views/admin/sanpham/list.jsp");
-		rd.forward(request, response);
+		if(model.getType().equals(SystemConstant.LIST)){
+			Pageable pageable = new PageRequest(model.getPage(),model.getPageItem(),
+					new Sorter(model.getSortName(),model.getSortBy()));
+					model.setTotalItem(sanphamservice.getTotalItem());
+					model.setTotalPage((int) Math.ceil((double) model.getTotalItem()/model.getPageItem()));
+					model.setListResult(sanphamservice.findAll(pageable));
+					request.setAttribute(SystemConstant.MODEL, model);
+					RequestDispatcher rd = request.getRequestDispatcher("/views/admin/sanpham/list.jsp");
+					rd.forward(request, response);
+		}
+		else if(model.getType().equals(SystemConstant.EDIT)) {
+			if(model.getId()!=null) {
+				model=	sanphamservice.findOne(model.getId());
+				
+			}else {}
+			request.setAttribute(SystemConstant.MODEL, model);
+		}
+		
+			RequestDispatcher rd = request.getRequestDispatcher("/views/admin/sanpham/edit.jsp");
+			rd.forward(request, response);
+		
 	}
 }

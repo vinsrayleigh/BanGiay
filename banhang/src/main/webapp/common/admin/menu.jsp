@@ -98,7 +98,7 @@
 				class="fa fa-angle-left pull-right"></i></span>
 	</a>
 		<ul class="treeview-menu">
-			<li><a href='<c:url value="/admin-sanpham?page=1&pageItem=5&sortName=id&sortBy=asc"/>'><i
+			<li><a href='<c:url value="/admin-sanpham?type=list&page=1&pageItem=5&sortName=id&sortBy=asc"/>'><i
 					class="fa fa-list-alt"></i> Danh Sách Sản Phẩm</a></li>
 			
 		</ul></li>

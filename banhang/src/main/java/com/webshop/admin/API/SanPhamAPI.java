@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.webshop.serviece.ISanPhamService;
 import com.webshop.servlet.model.SanPhamModel;
+import com.webshop.servlet.model.TKNhanVienModel;
 import com.webshop.utils.HttpUtils;
+import com.webshop.utils.SessionUtil;
 
 @WebServlet(urlPatterns = { "/api-admin-sanpham" })
 public class SanPhamAPI extends HttpServlet {
@@ -27,8 +29,8 @@ public class SanPhamAPI extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
 		SanPhamModel spmodel = HttpUtils.of(request.getReader()).toModel(SanPhamModel.class);
+		spmodel.setCreatedBy(((TKNhanVienModel)SessionUtil.getInstace().getValue(request, "TKNhanVienModel")).getUserName());
 		spmodel = spsv.save(spmodel);
-		System.out.println(spmodel);
 		mapper.writeValue(response.getOutputStream(), spmodel);
 
 	}
@@ -47,6 +49,7 @@ public class SanPhamAPI extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
 		SanPhamModel updsp = HttpUtils.of(request.getReader()).toModel(SanPhamModel.class);
+		updsp.setModifiedBy(((TKNhanVienModel)SessionUtil.getInstace().getValue(request, "TKNhanVienModel")).getUserName());
 		updsp=spsv.upd(updsp);
 		mapper.writeValue(response.getOutputStream(),updsp);
 	}

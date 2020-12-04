@@ -127,8 +127,8 @@
 		<li class="dropdown user user-menu"><a href="#"
 			class="dropdown-toggle" data-toggle="dropdown"> <img
 				src="<c:url value='/template/admin/dist/img/user2-160x160.jpg' />"
-				class="user-image" alt="User Image"> <span class="hidden-xs">Nguyễn
-					Văn A</span>
+				class="user-image" alt="User Image"> <span class="hidden-xs">${TKNhanVienModel.userName}
+					</span>
 		</a>
 			<ul class="dropdown-menu">
 				<!-- User image -->
@@ -137,16 +137,13 @@
 					class="img-circle" alt="User Image">
 
 					<p>
-						Nguyễn Văn A <small>Nhân viên</small>
+						${TKNhanVienModel.userName} <small>Sếp đấy mấy e</small>
 					</p></li>
 
 				<li class="user-footer">
+					
 					<div class="pull-left">
-						<a href="ThongTinCaNhanStaff.html"
-							class="btn btn-default btn-flat">Thông tin cá nhân</a>
-					</div>
-					<div class="pull-right">
-						<a href="#" class="btn btn-default btn-flat">Đăng xuất</a>
+						<a href='<c:url value="/thoat?action=logout"/>' class="btn btn-default btn-flat">Đăng xuất</a>
 					</div>
 				</li>
 			</ul></li>

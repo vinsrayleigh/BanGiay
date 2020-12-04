@@ -15,7 +15,7 @@ public class SanPhamService implements ISanPhamService {
 	@Override
 	public SanPhamModel save(SanPhamModel sanpham) {
 		sanpham.setCreatedDate(new Timestamp(System.currentTimeMillis()));
-		sanpham.setCreatedBy("lolll");
+	
 		Long id=spdao.save(sanpham);
 		return spdao.findOne(id);
 	}
@@ -25,7 +25,7 @@ public class SanPhamService implements ISanPhamService {
 		SanPhamModel oldsp=spdao.findOne(sanpham.getId());
 	
 		sanpham.setModifiedDate(new Timestamp(System.currentTimeMillis()));
-		sanpham.setModifiedBy(" loll ");
+		
 		sanpham.setCreatedBy(oldsp.getCreatedBy());
 		sanpham.setCreatedDate(oldsp.getCreatedDate());
 		spdao.upd(sanpham);
@@ -50,6 +50,12 @@ public class SanPhamService implements ISanPhamService {
 	public int getTotalItem() {
 		
 		return spdao.getTotalItem();
+	}
+
+	@Override
+	public SanPhamModel findOne(Long id) {
+		return spdao.findOne(id);
+		
 	}
 	
 }

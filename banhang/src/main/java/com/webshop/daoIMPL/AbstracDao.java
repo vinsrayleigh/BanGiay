@@ -9,18 +9,24 @@ import java.sql.Timestamp;
 import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import com.webshop.dao.GenericDAO;
 import com.webshop.maper.RowMapper;
 
 public class AbstracDao<T> implements GenericDAO<T> {
 
+	ResourceBundle mybundle=ResourceBundle.getBundle("db");
 	public Connection getConnection() {
-		String userName = "root";
-		String password = "12345";
-		String url = "jdbc:mysql://localhost:3306/banhang";
+//		String userName = "root";
+//		String password = "12345";
+//		String url = "jdbc:mysql://localhost:3306/banhang";
+		String userName =mybundle.getString("user");
+		String password = mybundle.getString("password");
+		String url = mybundle.getString("url");
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			//Class.forName("com.mysql.jdbc.Driver");
+			Class.forName(mybundle.getString("driverName"));
 			Connection conn = DriverManager.getConnection(url, userName, password);
 			return conn;
 		} catch (Exception e) {
